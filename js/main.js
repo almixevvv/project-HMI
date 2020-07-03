@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 			$('.back-to-top').fadeOut('slow');
 		}
 	});
+
 	$('.back-to-top').click(function() {
 		$('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
 		return false;
@@ -136,16 +137,6 @@ jQuery(document).ready(function($) {
 		},
 		allowPageScroll: 'vertical'
 	});
-
-	// Skills section
-	$('#skills').waypoint(
-		function() {
-			$('.progress .progress-bar').each(function() {
-				$(this).css('width', $(this).attr('aria-valuenow') + '%');
-			});
-		},
-		{ offset: '80%' }
-	);
 
 	// Porfolio isotope and filter
 	var portfolioIsotope = $('.portfolio-container').isotope({
