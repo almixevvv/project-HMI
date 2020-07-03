@@ -18,7 +18,7 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="plugins/font-awesome/css/all.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -30,17 +30,51 @@
 
 <body>
 
+  <div class="container-fluid d-none d-md-none d-lg-block d-xl-block">
+    <div class="bg-white">
+      <div class="row">
+        <div class="col-4">
+          <div id="logo">
+            <a href="#intro">
+              <img class="w-50 pt-3 pb-3 ml-5" src="img/logo/Haluan_Maritim_FullLogo.png" alt="HMI Logo" title="HMI Main Logo" style="margin-top: -5px;" />
+            </a>
+          </div>
+        </div>
+        <div class="col-8">
+          <ul class="list-inline mb-0 pt-3 ml-5">
+            <li class="list-inline-item list-inline-item mr-4">
+              <h6 class="text-primary mb-0">
+                <i class="fa fa-phone text-primary mr-2"></i> Hubungi Kami</h6>
+              <span>
+                <a class="btn pt-1" href="tel:021-536-51-222" style="color: #a7a7a7;"> (+62) 811 1369 153</a>
+              </span>
+            </li>
+            <li class="list-inline-item list-inline-item mr-4">
+              <h6 class="text-primary mb-0">
+                <i class="fab fa-whatsapp fa-1x mr-2" style="color: #00b011;"></i>WhatsApp</h6>
+                <span>
+              <a class="btn pt-1" href="https://web.whatsapp.com/send?phone=+62111369153" target="_blank">
+              (+62) 811 1369 153</a></span>
+            </li>
+            <li class="list-inline-item">
+              <h6 class="text-primary mb-0">
+                <i class="fas fa-envelope text-primary mr-2"></i> Send us an eMail</h6>
+                <span><a class="btn pt-1" href="#">
+                  info@haluanmaritim.com</a></span>
+                
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--==========================
     Header
   ============================-->
   <header id="header">
     <div class="container-fluid">
-
-      <nav id="nav-menu-container" class="d-inline-flex">
-        <div id="logo" style="width: 45%;">
-          <a href="#intro"><img src="img/logo/HALUAN.png" alt="HMI Logo" title="HMI Main Logo" style="width: 25%;margin-top: -5px;" /></a>
-        </div>
-        <div id="navigation">
+      <nav id="nav-menu-container">
           <ul class="nav-menu">
             <li class="menu-active"><a href="#intro">Halaman Utama</a></li>
             <li><a href="#about">Tentang Kami</a></li>
@@ -48,8 +82,7 @@
             <li><a href="#team">Client Kami</a></li>
             <li><a href="#team">Kontak</a></li>
           </ul>
-        </div>
-      </nav><!-- #nav-menu-container -->
+      </nav>
     </div>
   </header><!-- #header -->
 
@@ -326,7 +359,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Our Clients</h3>
+          <h3>client kami</h3>
         </header>
 
         <div class="owl-carousel clients-carousel">
@@ -406,7 +439,7 @@
               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Tolong tuliskan pesan anda untuk kami" placeholder="Pesan"></textarea>
               <div class="validation"></div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit">Kirim Pesan</button></div>
           </form>
         </div>
 
@@ -429,7 +462,7 @@
           </div>
 
           <div class="col-lg-4 col-md-12 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Tautan</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i><a href="#intro">Halaman Utama</a></li>
               <li><i class="ion-ios-arrow-right"></i><a href="#about">Tentang Kami</a></li>
@@ -464,7 +497,7 @@
     </div>
   </footer><!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <a href="#" class="back-to-top"><i class="mt-2 fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
@@ -475,16 +508,20 @@
   <script src="lib/superfish/superfish.min.js"></script>
   <script src="lib/wow/wow.min.js"></script>
   <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/isotope/isotope.pkgd.min.js"></script>
   <script src="lib/lightbox/js/lightbox.min.js"></script>
   <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
+  <script src="plugins/font-awesome/js/all.min.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+
+  <script>
+    $('.top').css('top', '120px');
+  </script>
 
 </body>
 </html>
