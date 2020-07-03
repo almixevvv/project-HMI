@@ -111,9 +111,11 @@ jQuery(document).ready(function($) {
 	$(window).scroll(function(e) {
 		if ($(this).scrollTop() > 100) {
 			$('#bottom-navbar').addClass('header-scrolled');
+			$('#nav-menu-container').css('padding-top', '5px');
 			// $('#bottom-navbar').css('top', '0');
 		} else {
 			$('#bottom-navbar').removeClass('header-scrolled');
+			$('#nav-menu-container').css('padding-top', '0');
 			// $('#header').css('top', '85px');
 		}
 	});
@@ -152,9 +154,9 @@ jQuery(document).ready(function($) {
 
 	// Clients carousel (uses the Owl Carousel library)
 	$('.clients-carousel').owlCarousel({
-		autoplay: true,
+		autoplay: false,
 		dots: true,
-		loop: true,
+		loop: false,
 		responsive: {
 			0: { items: 2 },
 			768: { items: 4 },
