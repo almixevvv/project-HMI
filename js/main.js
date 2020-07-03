@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 	//Initiap Top Value
-	$('#header').css('top', '85px');
+	// $('#header').css('top', '85px');
 
 	// Back to top button
 	$(window).scroll(function() {
@@ -76,10 +76,10 @@ jQuery(document).ready(function($) {
 			if (target.length) {
 				var top_space = 0;
 
-				if ($('#header').length) {
-					top_space = $('#header').outerHeight();
+				if ($('#bottom-navbar').length) {
+					top_space = $('#bottom-navbar').outerHeight();
 
-					if (!$('#header').hasClass('header-fixed')) {
+					if (!$('#bottom-navbar').hasClass('header-fixed')) {
 						top_space = top_space - 20;
 					}
 				}
@@ -108,13 +108,13 @@ jQuery(document).ready(function($) {
 	});
 
 	// Header scroll class
-	$(window).scroll(function() {
+	$(window).scroll(function(e) {
 		if ($(this).scrollTop() > 100) {
-			$('#header').addClass('header-scrolled');
-			$('#header').css('top', '0');
+			$('#bottom-navbar').addClass('header-scrolled');
+			// $('#bottom-navbar').css('top', '0');
 		} else {
-			$('#header').removeClass('header-scrolled');
-			$('#header').css('top', '85px');
+			$('#bottom-navbar').removeClass('header-scrolled');
+			// $('#header').css('top', '85px');
 		}
 	});
 
@@ -136,16 +136,6 @@ jQuery(document).ready(function($) {
 		},
 		allowPageScroll: 'vertical'
 	});
-
-	// Skills section
-	$('#skills').waypoint(
-		function() {
-			$('.progress .progress-bar').each(function() {
-				$(this).css('width', $(this).attr('aria-valuenow') + '%');
-			});
-		},
-		{ offset: '80%' }
-	);
 
 	// Porfolio isotope and filter
 	var portfolioIsotope = $('.portfolio-container').isotope({
