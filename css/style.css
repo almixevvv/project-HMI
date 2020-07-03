@@ -94,6 +94,11 @@ h6 {
 	z-index: 997;
 }
 
+#bottom-navbar {
+	transition: all 0.5s;
+	z-index: 997;
+}
+
 #bottom-navbar.header-scrolled {
 	background: rgba(22, 86, 107, 0.9);
 	padding: 20px 0;
