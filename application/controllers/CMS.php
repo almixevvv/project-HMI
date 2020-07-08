@@ -23,8 +23,7 @@ class CMS extends CI_Controller
     	$data['page'] = 'DASHBOARD';
 
         $this->load->view('templates-cms/header', $data);
-        $this->load->view('templates-cms/navbar');
-        $this->load->view('templates-cms/frame_side');
+
         $this->load->view('pages-cms/home');
         // $this->load->view('templates/footer');
     }

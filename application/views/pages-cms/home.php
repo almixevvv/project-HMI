@@ -1,6 +1,6 @@
 <style type="text/css">
   body {
-    background: url('assets/img/ico/BACKGROUND 3.jpg') center no-repeat fixed;
+    background: url('assets/img/intro-carousel/BACKGROUND 3.jpg') center no-repeat fixed;
   }
 </style>
 
@@ -10,7 +10,7 @@
     <div class="card card-login mx-auto mt-5" style="background-color: transparent;border:transparent;">
       <div class="card-body">
         <div class="d-flex justify-content-center">
-          <img src="<?php echo base_url('assets/img/ico/Haluan_Maritim_FullLogo.png'); ?>" alt="Bulog Logo" style="width: 35%;">
+          <img src="<?php echo base_url('assets/img/logo/Haluan_Maritim_FullLogo.png'); ?>" alt="Haluan Maritim Logo" style="width: 35%;">
         </div>
         <center>
           <?php echo form_open('CMS/login_process'); ?>
