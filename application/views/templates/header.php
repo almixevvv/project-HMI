@@ -8,7 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <link href="<?php echo base_url('assets/img/favicon.png'); ?>" rel="icon">
+    <link href="<?php echo base_url('assets/img/ico/ico.png'); ?>" rel="icon">
     <link href="<?php echo base_url('assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
