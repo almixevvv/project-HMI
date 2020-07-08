@@ -24,9 +24,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 //BASE URL ANDRE
-// $config['base_url'] = 'http://localhost/project-hmi/';
+$config['base_url'] = 'http://localhost/project-hmi/';
 //BASE URL AL
-$config['base_url'] = 'http://project-hmi.test/';
+// $config['base_url'] = 'http://project-hmi.test/';
 
 
 /*
