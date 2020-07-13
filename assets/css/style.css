@@ -18,8 +18,17 @@ body {
 	border: none;
 }
 
+.product-list2 {
+	background-color: #fff0;
+	border: none;
+}
+
 .product-list i {
 	color: #2c6679;
+}
+
+.product-list2 i {
+	color: #bc3434;
 }
 
 a {
