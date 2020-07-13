@@ -23,7 +23,7 @@
 <main id="main">
 
 
-    <section class="about-us mt-5">
+    <!-- <section class="about-us mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 wow fadeInUp">
@@ -55,12 +55,41 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <section id="about">
         <div class="container">
 
             <div class="row about-cols">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeInUp">
+                            <header class="section-header">
+                                <h3>tentang kami</h3>
+                                <p>PT Haluan Maritim Internasional adalah perusahaan yang bergerak dalam bidang perdagangan
+                                    suku cadang dan perlengkapan kapal laut.
+                                    </br>
+                                    </br>
+                                    Memberikan pelayanan dalam pengadaan-pengadaan kebutuhan kapal laut seperti keperluan <strong>Cathodic Protection (Zinc & Alumunium Anode)</strong>,
+                                    <strong>Cabin Store</strong>, <strong>Deck Store</strong>, <strong>Electrical Store</strong>, <strong>Nautical Equipment</strong>, <strong>Marine Valves</strong>,
+                                    <strong>Rope</strong>, <strong>Hawser</strong>, <strong>Rigging Equipment</strong>, <strong>Safety Equipment</strong></i> dan keperluan lainnya.
+                                </p>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeInUp">
+                            <header class="section-header">
+                                <h3>visi</h3>
+                                <p>Menjadi supplier kapal laut yang terus bertumbuh besar dengan mengedepankan pelayanan dan kualitas perusahaan guna menjaga kepercayaan customer.</p>
+                            </header>
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="col-md-12 wow fadeInUp">
                     <header class="section-header">
@@ -71,30 +100,30 @@
                 <div class="col-md-4 wow fadeInUp">
                     <div class="about-col">
                         <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/about-mission.jpg'); ?>" alt="" class="img-fluid">
+                            <img src="<?php echo base_url('assets/img/about-mission2.jpg'); ?>" alt="" class="img-fluid">
                             <div class="icon"><i class="ion-settings"></i></div>
                         </div>
-                        <p class="title text-capitalize">Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer</p>
+                        <p class="title text-capitalize">Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer.</p>
                     </div>
                 </div>
 
                 <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="about-col">
                         <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/about-plan.jpg'); ?>" alt="" class="img-fluid">
+                            <img src="<?php echo base_url('assets/img/about-vision.jpg'); ?>" alt="" class="img-fluid">
                             <div class="icon"><i class="ion-link"></i></div>
                         </div>
-                        <p class="title text-capitalize">Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer</p>
+                        <p class="title text-capitalize">Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer.</p>
                     </div>
                 </div>
 
                 <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="about-col">
                         <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/about-vision.jpg'); ?>" alt="" class="img-fluid">
+                            <img src="<?php echo base_url('assets/img/about-plan.jpg'); ?>" alt="" class="img-fluid">
                             <div class="icon"><i class="ion-loop"></i></div>
                         </div>
-                        <p class="title text-capitalize">Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan</p>
+                        <p class="title text-capitalize">Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan.</p>
                     </div>
                 </div>
 

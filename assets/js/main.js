@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
 					top_space = $('#bottom-navbar').outerHeight();
 
 					if (!$('#bottom-navbar').hasClass('header-fixed')) {
-						top_space = top_space + 30;
+						top_space = top_space + 159;
 					}
 				}
 

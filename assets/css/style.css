@@ -677,7 +677,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	padding-top: 8px;
 	text-align: center;
 	position: absolute;
-	background-color: #18d26e;
+	background-color: #16566b;
 	border-radius: 50%;
 	text-align: center;
 	border: 4px solid #fff;
@@ -698,7 +698,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-col:hover i {
-	color: #18d26e;
+	color: #16566b;
 }
 
 #about .about-col h2 {
