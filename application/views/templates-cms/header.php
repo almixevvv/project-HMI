@@ -2,26 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>HMI CMS - <?php echo $page; ?></title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link href="<?php echo base_url('assets/img/logo/icon.png'); ?>" rel="icon">
     <link href="<?php echo base_url('assets/img/logo/icon.png'); ?>" rel="apple-touch-icon">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
-    <link href="<?php echo base_url('lib/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <!-- Fonts and icons -->
+    <script src="<?php echo base_url('assets/cms//js/plugin/webfont/webfont.min.js'); ?>"></script>
+    <script>
+        const getUrl = window.location;
+        const baseUrl = getUrl.protocol + '//' + getUrl.host + '/' + getUrl.pathname.split('/')[0];
 
-    <link href="<?php echo base_url('plugins/font-awesome/css/all.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('lib/animate/animate.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('lib/ionicons/css/ionicons.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('lib/owlcarousel/assets/owl.carousel.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('lib/lightbox/css/lightbox.min.css'); ?>" rel="stylesheet">
+        WebFont.load({
+            google: {
+                "families": ["Lato:300,400,700,900"]
+            },
+            custom: {
+                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+                urls: [baseUrl + 'assets/cms/css/fonts.min.css']
+            },
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
 
-    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/cms/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/cms/css/atlantis.min.css'); ?>">
 </head>
 
 <body>
