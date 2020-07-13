@@ -22,32 +22,83 @@
 
 <main id="main">
 
+
+    <section class="about-us mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow fadeInUp">
+                    <header class="section-header">
+                        <h3>tentang kami</h3>
+                        <p>PT Haluan Maritim Internasional adalah perusahaan yang bergerak dalam bidang perdagangan
+                            suku cadang dan perlengkapan kapal laut
+                            </br>
+                            </br>
+                            Memberikan pelayanan dalam pengadaan-pengadaan kebutuhan kapal laut seperti keperluan <strong>Cathodic Protection (Zinc & Alumunium Anode)</strong>,
+                            <strong>Cabin Store</strong>, <strong>Deck Store</strong>, <strong>Electrical Store</strong>, <strong>Nautical Equipment</strong>, <strong>Marine Valves</strong>,
+                            <strong>Rope</strong>, <strong>Hawser</strong>, <strong>Rigging Equipment</strong>, <strong>Safety Equipment</strong></i> dan keperluan lainnya
+                        </p>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow fadeInUp">
+                    <header class="section-header">
+                        <h3>visi</h3>
+                        <p>Menjadi supplier kapal laut yang terus bertumbuh besar dengan mengedepankan pelayanan dan kualitas perusahaan guna menjaga kepercayaan customer</p>
+                    </header>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="about">
         <div class="container">
 
-            <header class="section-header">
-                <h3>tentang kami</h3>
-                <p>PT Haluan Maritim Internasional adalah perusahaan yang bergerak dalam bidang perdagangan
-                    suku cadang dan perlengkapan kapal laut
-                    </br>
-                    </br>
-                    Memberikan pelayanan dalam pengadaan-pengadaan kebutuhan kapal laut seperti keperluan <strong>Cathodic Protection (Zinc & Alumunium Anode)</strong>,
-                    <strong>Cabin Store</strong>, <strong>Deck Store</strong>, <strong>Electrical Store</strong>, <strong>Nautical Equipment</strong>, <strong>Marine Valves</strong>,
-                    <strong>Rope</strong>, <strong>Hawser</strong>, <strong>Rigging Equipment</strong>, <strong>Safety Equipment</strong></i> dan keperluan lainnya
-                </p>
-            </header>
+            <div class="row about-cols">
 
-            <header class="section-header">
-                <h3>visi</h3>
-                <p>Menjadi supplier kapal laut yang terus bertumbuh besar dengan mengedepankan pelayanan dan kualitas perusahaan guna menjaga kepercayaan customer</p>
-            </header>
+                <div class="col-md-12 wow fadeInUp">
+                    <header class="section-header">
+                        <h3>misi</h3>
+                    </header>
+                </div>
 
-            <header class="section-header">
-                <h3>misi</h3>
-                <p class="mb-0 pb-0"><i class="fas fa-caret-right icon-large mr-2" style="font-size: 1.2rem; color:  #16566b;"></i>Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer</p>
-                <p class="mb-0 pb-0"><i class="fas fa-caret-right mr-2" style="font-size: 1.2rem; color:  #16566b;"></i>Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer</p>
-                <p class="mb-0 pb-0"><i class="fas fa-caret-right mr-2" style="font-size: 1.2rem; color:  #16566b;"></i>Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan</p>
-            </header>
+                <div class="col-md-4 wow fadeInUp">
+                    <div class="about-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/about-mission.jpg'); ?>" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-settings"></i></div>
+                        </div>
+                        <p class="title text-capitalize">Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="about-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/about-plan.jpg'); ?>" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-link"></i></div>
+                        </div>
+                        <p class="title text-capitalize">Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="about-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/about-vision.jpg'); ?>" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-loop"></i></div>
+                        </div>
+                        <p class="title text-capitalize">Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan</p>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     </section>
@@ -59,234 +110,181 @@
                 <h3 class="section-title">produk kami</h3>
             </header>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">Semua</li>
-                        <li data-filter=".filter-cathodic">Cathodic Protection</li>
-                        <li data-filter=".filter-cabin">Cabin Store</li>
-                        <li data-filter=".filter-deck">Deck Store</li>
-                        <li data-filter=".filter-valve">Marine Valve</li>
-                        <li data-filter=".filter-rope">Rope, Hawser dan Rigging Equipment</li>
-                        <li data-filter=".filter-nautical">Nautical Equipment</li>
-                        <li data-filter=".filter-safety">Safety Equipment</li>
-                        <li data-filter=".filter-electrical">Electrical Store</li>
+            <div class="row" data-aos="fade-up">
+                <div class="col-md-4">
+                    <img src="<?php echo base_url('assets/img/product/CATHODIC PROTECT 1.JPG'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 pt-4">
+                    <h3>Cathodic Protection</h3>
+                    <ul class="list-group">
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Zinc Anode</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Alumunium Anode</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="row portfolio-container">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-cathodic wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/CATHODIC PROTECT 1.JPG'); ?>" class="img-fluid" alt="Cathodic Project 1">
-                            <a href="<?php echo base_url('assets/img/product/CATHODIC PROTECT 1.JPG'); ?>" data-lightbox="portfolio" data-title="Zinc Anode" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Zinc Anode</a></h4>
-                            <p>Cathodic Protection</p>
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-7">
+                    <h3 class="pl-lg-4 pt-4">Cabin Store</h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Brushes and Mats</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Cleaning Material</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Clothing Products</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Linen Products</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Lavatory Equipment</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Tableware Utensils</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Galley Utensils</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Hardware</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-cathodic wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/CATHODIC PROTECT 3.JPG'); ?>" class="img-fluid" alt="Cathodic Project 3">
-                            <a href="<?php echo base_url('assets/img/product/CATHODIC PROTECT 3.JPG'); ?>" data-lightbox="portfolio" data-title="Aluminium Anode" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-4">
+                    <img src="<?php echo base_url('assets/img/product/MARINE VALVE 3.jpg'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 pt-4">
+                    <h3>Deck Store</h3>
+                    <div class="row">
+                        <div class="col-5">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Deck Equipment</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Cargo Equipment</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Hose and Coupling</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Brushes</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Petroleum Produts</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Oil Pollution Equipment</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Safety Protective Gear</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                        <div class="portfolio-info">
-                            <h4><a href="#">Aluminium Anode</a></h4>
-                            <p>Cathodic Protection</p>
+                </div>
+            </div>
+
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-7 pt-4">
+                    <h3>Marine Valve</h3>
+                    <ul class="list-group">
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> JIS Marine Valve</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Butterfly Valve</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="<?php echo base_url('assets/img/product/MARINE VALVE 4.jpg'); ?>" class="img-fluid" alt="">
+                </div>
+            </div>
+
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-4">
+                    <img src="<?php echo base_url('assets/img/product/PRODUK ROPE 2.jpg'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 pt-4">
+                    <h3>Rope, Hawser, dan Riggings Equipment</h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Anchor</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Anchor Chain</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Chains & Links</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Shackles</li>
+
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Turnbuckles</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Wire Clips</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Mooring Ropes</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Wire Ropes</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-cathodic wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/CATHODIC PROTECT 4.JPG'); ?>" class="img-fluid" alt="Cathodic Project 4">
-                            <a href="<?php echo base_url('assets/img/product/CATHODIC PROTECT 4.JPG'); ?>" data-lightbox="portfolio" data-title="Aluminium Anode" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Aluminium Anode</a></h4>
-                            <p>Cathodic Protection</p>
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-7 pt-4">
+                    <h3>Nautical Equipment</h3>
+                    <div class="row">
+                        <div class="col-5">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Chart Room Materials</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Flags</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> GMDSS Radio Equipment</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Nautical Recording Paper</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Office Consumables</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Publication and Charts</li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-cathodic wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/CATHODIC PROTECT 5.JPG'); ?>" class="img-fluid" alt="Cathodic Project 5">
-                            <a href="<?php echo base_url('assets/img/product/CATHODIC PROTECT 5.JPG'); ?>" data-lightbox="portfolio" data-title="Aluminium Anode" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Aluminium Anode</a></h4>
-                            <p>Cathodic Protection</p>
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-4">
+                    <img src="<?php echo base_url('assets/img/product/SAFETY EQUIP 1.jpg'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 pt-4">
+                    <h3>Safety Equipment</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Breathing Apparatus</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Chemical & Gas Protection Suit</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Fire Fighting Equipment</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Life Boat & Life Raft Accesories</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Safety Lights</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Safety Signs</li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-valve wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/MARINE VALVE 1.JPG'); ?>" class="img-fluid" alt="Marine Valve">
-                            <a href="<?php echo base_url('assets/img/product/MARINE VALVE 1.JPG'); ?>" data-lightbox="portfolio" data-title="JIS Marine Valve" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">JIS Marine Valve</a></h4>
-                            <p>Marine Valve</p>
+            <div class="row mt-5" data-aos="fade-up">
+                <div class="col-md-7 pt-4">
+                    <h3>Electrical Store</h3>
+                    <div class="row">
+                        <div class="col-3">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Battery</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Cables</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Lamps</li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul class="list-group">
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Lighting Fixtures</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Plugs & Sockes</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Torch</li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-valve wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/MARINE VALVE 2.JPG'); ?>" class="img-fluid" alt="Marine Valve">
-                            <a href="<?php echo base_url('assets/img/product/MARINE VALVE 2.JPG'); ?>" data-lightbox="portfolio" data-title="JIS Marine Valve" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">JIS Marine Valve</a></h4>
-                            <p>Marine Valve</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-valve wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/MARINE VALVE 3.JPG'); ?>" class="img-fluid" alt="Marine Valve">
-                            <a href="<?php echo base_url('assets/img/product/MARINE VALVE 3.JPG'); ?>" data-lightbox="portfolio" data-title="JIS Marine Valve" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">JIS Marine Valve</a></h4>
-                            <p>Marine Valve</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-valve wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/MARINE VALVE 4.JPG'); ?>" class="img-fluid" alt="Marine Valve">
-                            <a href="<?php echo base_url('assets/img/product/MARINE VALVE 4.JPG'); ?>" data-lightbox="portfolio" data-title="Butterfly Valve" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Butterfly Valve</a></h4>
-                            <p>Marine Valve</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-rope wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/PRODUK ROPE 1.JPG'); ?>" class="img-fluid" alt="Rope">
-                            <a href="<?php echo base_url('assets/img/product/PRODUK ROPE 1.JPG'); ?>" data-lightbox="portfolio" data-title="Rope" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Rope</a></h4>
-                            <p>Rope, Hawser & Rigging Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-rope wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/PRODUK ROPE 2.JPG'); ?>" class="img-fluid" alt="Anchor">
-                            <a href="<?php echo base_url('assets/img/product/PRODUK ROPE 2.JPG'); ?>" data-lightbox="portfolio" data-title="Anchor" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Anchor</a></h4>
-                            <p>Rope, Hawser & Rigging Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-rope wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/PRODUK ROPE 3.JPG'); ?>" class="img-fluid" alt="Marine Valve">
-                            <a href="<?php echo base_url('assets/img/product/PRODUK ROPE 3.JPG'); ?>" data-lightbox="portfolio" data-title="Rope" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Rope</a></h4>
-                            <p>Rope, Hawser & Rigging Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-safety wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/SAFETY EQUIP 1.JPG'); ?>" class="img-fluid" alt="Breathing Apparatus">
-                            <a href="<?php echo base_url('assets/img/product/SAFETY EQUIP 1.JPG'); ?>" data-lightbox="portfolio" data-title="Breathing Apparatus" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Breathing Apparatus</a></h4>
-                            <p>Safety Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-safety wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/SAFETY EQUIP 2.JPG'); ?>" class="img-fluid" alt="Chemical & Gas Protection Suit">
-                            <a href="<?php echo base_url('assets/img/product/SAFETY EQUIP 2.JPG'); ?>" data-lightbox="portfolio" data-title="Chemical & Gas Protection Suit" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Chemical & Gas Protection Suit</a></h4>
-                            <p>Safety Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-safety wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/SAFETY EQUIP 3.JPG'); ?>" class="img-fluid" alt="Chemical & Gas Protection Suit">
-                            <a href="<?php echo base_url('assets/img/product/SAFETY EQUIP 3.JPG'); ?>" data-lightbox="portfolio" data-title="Chemical & Gas Protection Suit" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Chemical & Gas Protection Suit</a></h4>
-                            <p>Safety Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-safety wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?php echo base_url('assets/img/product/SAFETY EQUIP 4.JPG'); ?>" class="img-fluid" alt="Firefighting Equipment">
-                            <a href="<?php echo base_url('assets/img/product/SAFETY EQUIP 4.JPG'); ?>" data-lightbox="portfolio" data-title="Firefighting Equipment" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Firefighting Equipment</a></h4>
-                            <p>Safety Equipment</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
