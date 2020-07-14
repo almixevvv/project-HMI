@@ -12,7 +12,7 @@
     <script src="<?php echo base_url('assets/cms//js/plugin/webfont/webfont.min.js'); ?>"></script>
     <script>
         const getUrl = window.location;
-        const baseUrl = getUrl.protocol + '//' + getUrl.host + '/' + getUrl.pathname.split('/')[0];
+        const baseUrl = getUrl.protocol + '//' + getUrl.host + '/' + getUrl.pathname.split('/')[1];
 
         WebFont.load({
             google: {
@@ -20,7 +20,7 @@
             },
             custom: {
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
-                urls: [baseUrl + 'assets/cms/css/fonts.min.css']
+                urls: [baseUrl + '/assets/cms/css/fonts.min.css']
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -30,7 +30,7 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url('assets/cms/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/cms/css/atlantis.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/cms/css/atlantis.css'); ?>">
 </head>
 
 <body>

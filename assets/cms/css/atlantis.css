@@ -542,13 +542,13 @@ body {
         .sidebar .nav > .nav-item a[data-toggle=collapse][aria-expanded=true]:before, .sidebar[data-background-color="white"] .nav > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
           background: #1d7af3; }
     .sidebar .nav.nav-primary > .nav-item a:hover i, .sidebar .nav.nav-primary > .nav-item a:focus i, .sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:hover i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:focus i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i {
-      color: #1572E8 !important; }
+      color: #16566b !important; }
     .sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
-      background: #1572E8 !important; }
+      background: #16566b !important; }
     .sidebar .nav.nav-primary > .nav-item.active a:before, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item.active a:before {
-      background: #1572E8 !important; }
+      background: #16566b !important; }
     .sidebar .nav.nav-primary > .nav-item.active a i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item.active a i {
-      color: #1572E8 !important; }
+      color: #16566b !important; }
     .sidebar .nav.nav-secondary > .nav-item a:hover i, .sidebar .nav.nav-secondary > .nav-item a:focus i, .sidebar .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true] i, .sidebar[data-background-color="white"] .nav.nav-secondary > .nav-item a:hover i, .sidebar[data-background-color="white"] .nav.nav-secondary > .nav-item a:focus i, .sidebar[data-background-color="white"] .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true] i {
       color: #6861CE !important; }
     .sidebar .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before, .sidebar[data-background-color="white"] .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
@@ -654,7 +654,7 @@ body {
   .sidebar.sidebar-style-2 .nav .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
     background: transparent !important; }
 .sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a {
-  background: #1572E8 !important;
+  background: #16566b !important;
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), 4px 4px 15px -5px rgba(21, 114, 232, 0.4) !important; }
   .sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a:before {
     background: transparent !important; }
@@ -899,9 +899,9 @@ body {
     width: calc(100% - 280px); }
 
 .footer {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #16566b;
   padding: 15px;
-  background: #ffffff;
+  background: #16566b;
   position: absolute;
   width: 100%; }
   .footer .container, .footer .container-fluid {
@@ -1386,6 +1386,9 @@ body {
 
 .navbar-header[data-background-color="blue2"] {
   background: #1269DB !important; }
+
+.navbar-header[data-background-color="blue3"] {
+  background: #16566b !important; }
 
 .logo-header[data-background-color="purple"] {
   background: #6861CE !important; }
