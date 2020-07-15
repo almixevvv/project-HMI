@@ -21,6 +21,50 @@
 </section>
 
 <main id="main">
+    <section id="histori">
+        <div class="container">
+
+            <div class="row histori-cols">
+                <div class="col-md-12 wow fadeInUp">
+                    <header class="section-header">
+                        <h3>histori suplai</h3>
+                    </header>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp">
+                    <div class="histori-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-1.png'); ?>" alt="" class="img-fluid">
+                            <!-- <div class="icon"><i class="ion-settings"></i></div> -->
+                        </div>
+                        <p class="title text-capitalize">Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="histori-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-2.png'); ?>" alt="" class="img-fluid">
+                            <!-- <div class="icon"><i class="ion-link"></i></div> -->
+                        </div>
+                        <p class="title text-capitalize">Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="histori-col">
+                        <div class="img mb-5">
+                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-3.png'); ?>" alt="" class="img-fluid">
+                            <!-- <div class="icon"><i class="ion-loop"></i></div> -->
+                        </div>
+                        <p class="title text-capitalize">Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     <section id="about">
         <div class="container">
