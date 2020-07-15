@@ -61,4 +61,13 @@ class CMS extends CI_Controller
         $this->load->view('pages-cms/home');
         $this->load->view('templates-cms/footer');
     }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('ID');
+        $this->session->unset_userdata('NAME');
+        $this->session->unset_userdata('GROUP_ID');
+
+        redirect('cms');
+    }
 }
