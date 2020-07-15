@@ -12,6 +12,24 @@
 		</div>
 		<div class="page-inner mt--5">
 			<div class="row mt--2">
+				<div class="card card-info card-annoucement card-round">
+					<div class="card-body text-center">
+						<div class="card-opening">Hello <?php echo $this->session->userdata('NAME');?>,</div>
+						<div class="card-desc">
+							Selamat datang di halaman Website Content Management System PT Haluan Maritim Internasional!
+						</div>
+						<div class="card-detail">
+							<a href="<?php echo base_url('cms/histori_suplai'); ?>">
+								<div class="btn btn-light btn-rounded" style="width: 20%">Histori Suplai</div>
+							</a>&nbsp;&nbsp;
+							<a href="<?php echo base_url('cms/histori_suplai'); ?>">
+								<div class="btn btn-light btn-rounded" style="width: 20%">Client</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-6">
 					<div class="card full-height">
 						<div class="card-header">
@@ -137,24 +155,40 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<div class="card full-height">
+				<div class="col-sm-6 col-md-6">
+					<div class="card card-stats card-info card-round">
 						<div class="card-body">
-							<div class="card-title">Overall Statistics</div>
-							<div class="card-category">Information about statistics in system</div>
-							<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-								<div class="px-2 pb-2 pb-md-0 text-center">
-									<div id="circles-1"></div>
-									<h6 class="fw-bold mt-3 mb-0">Client</h6>
+							<div class="row">
+								<div class="col-5">
+									<div class="icon-big text-center">
+										<i class="flaticon-interface-6"></i>
+									</div>
 								</div>
-								<div class="px-2 pb-2 pb-md-0 text-center">
-									<div id="circles-2"></div>
-									<h6 class="fw-bold mt-3 mb-0">Histori Suplai</h6>
+								<div class="col-7 col-stats">
+									<div class="numbers">
+										<p class="card-category">Histori Suplai</p>
+										<h4 class="card-title">3</h4>
+									</div>
 								</div>
-								<!-- <div class="px-2 pb-2 pb-md-0 text-center">
-									<div id="circles-3"></div>
-									<h6 class="fw-bold mt-3 mb-0">Subscribers</h6>
-								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6">
+					<div class="card card-stats card-primary card-round">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-5">
+									<div class="icon-big text-center">
+										<i class="flaticon-users"></i>
+									</div>
+								</div>
+								<div class="col-7 col-stats">
+									<div class="numbers">
+										<p class="card-category">Client</p>
+										<h4 class="card-title">2</h4>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
