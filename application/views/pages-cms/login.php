@@ -13,37 +13,27 @@
           <img src="<?php echo base_url('assets/img/logo/Haluan_Maritim_FullLogo.png'); ?>" alt="Haluan Maritim Logo" style="width: 35%;">
         </div>
         <center>
-          <?php echo form_open('CMS/login_process'); ?>
-          <div class="form-group" style="margin-top: 3em;">
-            <div class="form-label-group">
-              <input type="text" id="inputEmail" name="txt-username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" style="width: 35%;">
+          <form id="loginForm">
+            <div class="form-group" style="margin-top: 3em;">
+              <div class="form-label-group">
+                <input type="text" id="inputEmail" name="txt-username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" style="width: 35%;">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" name="txt-password" class="form-control" placeholder="Password" required="required" style="width: 35%;">
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="txt-password" class="form-control" placeholder="Password" required="required" style="width: 35%;">
+              </div>
             </div>
-
-            <?php if($this->input->get('error') == 1): ?>
-            <div class="alert alert-danger alert-dismissible fade show mt-2">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Login Failed!</strong> Wrong Username/Password.
-            </div>
-            <?php elseif($this->input->get('error') == 2): ?>
-            <div class="alert alert-danger alert-dismissible fade show mt-2">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Login Failed!</strong> Username Not Found.
-            </div>
-            <?php endif; ?>
-            
-          </div>
         </center>
         <center>
           <button type="submit" class="btn" style="background-color: #16566b;color: white;">Masuk</button>
         </center>
-        <?php echo form_close(); ?>
+        </form>
       </div>
     </div>
   </div>
 
 </body>
+<script src="<?php echo base_url('assets/cms/js/core/jquery.3.2.1.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/cms/js/plugin/sweetalert/sweetalert.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/login-cms.1.0.min.js'); ?>"></script>

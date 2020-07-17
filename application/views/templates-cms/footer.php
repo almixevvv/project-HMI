@@ -37,6 +37,31 @@
 <script src="<?php echo base_url('assets/cms/js/atlantis.min.js'); ?>"></script>
 
 <script>
+    $('#btnLogout').click(function(ex) {
+        swal({
+            title: 'Logout dari sistem',
+            text: 'Apa anda yakin ingin keluar dari sistem?',
+            type: 'warning',
+            buttons: {
+                confirm: {
+                    className: 'btn btn-success'
+                },
+                cancel: {
+                    visible: true,
+                    className: 'btn btn-danger'
+                }
+            }
+        }).then((result) => {
+            if (result) {
+                window.location.replace(baseUrl + 'CMS/logout');
+            } else {
+                swal.close();
+            }
+        });
+    });
+
+    $('#add-row').DataTable({});
+
     Circles.create({
         id: 'circles-1',
         radius: 45,
@@ -80,54 +105,6 @@
         textClass: 'circles-text',
         styleWrapper: true,
         styleText: true
-    })
-
-    var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-    var mytotalIncomeChart = new Chart(totalIncomeChart, {
-        type: 'bar',
-        data: {
-            labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-            datasets: [{
-                label: "Total Income",
-                backgroundColor: '#ff9e27',
-                borderColor: 'rgb(23, 125, 255)',
-                data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-            }],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                display: false,
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        display: false //this will remove only the label
-                    },
-                    gridLines: {
-                        drawBorder: false,
-                        display: false
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        drawBorder: false,
-                        display: false
-                    }
-                }]
-            },
-        }
-    });
-
-    $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: 'line',
-        height: '70',
-        width: '100%',
-        lineWidth: '2',
-        lineColor: '#ffa534',
-        fillColor: 'rgba(255, 165, 52, .14)'
     });
 </script>
 </body>

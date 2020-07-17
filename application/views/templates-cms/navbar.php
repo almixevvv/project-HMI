@@ -45,17 +45,17 @@
 										<div class="avatar-lg"><img src="<?php echo base_url('assets/cms/img/haggen.png'); ?>" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4><?php
-									              echo $this->session->userdata('NAME');
-									            ?></h4>
+												echo $this->session->userdata('NAME');
+												?></h4>
 											<p class="text-muted"><?php
-									              echo $this->session->userdata('GROUP_ID');
-									            ?></p>
+																	echo $this->session->userdata('GROUP_ID');
+																	?></p>
 										</div>
 									</div>
 								</li>
 								<li>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="<?php echo base_url('CMS/logout'); ?>" >Logout</a>
+									<a class="dropdown-item" id="btnLogout">Logout</a>
 								</li>
 							</div>
 						</ul>

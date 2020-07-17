@@ -9,10 +9,10 @@
     <link href="<?php echo base_url('assets/img/logo/icon.png'); ?>" rel="apple-touch-icon">
 
     <!-- Fonts and icons -->
-    <script src="<?php echo base_url('assets/cms//js/plugin/webfont/webfont.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/cms/js/plugin/webfont/webfont.min.js'); ?>"></script>
     <script>
         const getUrl = window.location;
-        const baseUrl = getUrl.protocol + '//' + getUrl.host + '/' + getUrl.pathname.split('/')[1];
+        const baseUrl = getUrl.protocol + '//' + getUrl.host + '/' + getUrl.pathname.split('/')[0];
 
         WebFont.load({
             google: {
