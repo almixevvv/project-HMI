@@ -1,6 +1,13 @@
+<style>
+	.form-err {
+		color: #F25961;
+		display: none;
+	}
+</style>
+
 <div class="main-panel">
 	<div class="content">
-		<div class="panel-header" style="background-image: url('<?php echo base_url('assets/img/intro-carousel/original/BACKGROUND 1.jpg');?>');background-size: cover;background-position: center;background-repeat: no-repeat;">
+		<div class="panel-header" style="background-image: url('<?php echo base_url('assets/img/intro-carousel/original/BACKGROUND 1.jpg'); ?>');background-size: cover;background-position: center;background-repeat: no-repeat;">
 			<div class="page-inner py-5">
 				<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 					<div>
@@ -24,56 +31,8 @@
 					</div>
 					<div class="card-body">
 						<!-- Modal -->
-						<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header no-bd">
-										<h5 class="modal-title">
-											<span class="fw-mediumbold">
-											New</span> 
-											<span class="fw-light">
-												Row
-											</span>
-										</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p class="small">Create a new row using this form, make sure you fill them all</p>
-										<form>
-											<div class="row">
-												<div class="col-sm-12">
-													<div class="form-group form-group-default">
-														<label>Name</label>
-														<input id="addName" type="text" class="form-control" placeholder="fill name">
-													</div>
-												</div>
-												<div class="col-md-6 pr-0">
-													<div class="form-group form-group-default">
-														<label>Position</label>
-														<input id="addPosition" type="text" class="form-control" placeholder="fill position">
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group form-group-default">
-														<label>Office</label>
-														<input id="addOffice" type="text" class="form-control" placeholder="fill office">
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
-									<div class="modal-footer no-bd">
-										<button type="button" id="addRowButton" class="btn btn-primary">Add</button>
-										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
 						<div class="table-responsive">
-							<table id="add-row" class="display table table-striped table-hover" >
+							<table id="add-row" class="display table table-striped table-hover">
 								<thead>
 									<tr>
 										<th style="width: 10%">No.</th>
@@ -84,77 +43,152 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td><img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-1.png'); ?>" alt="" class="img-fluid" style="width: 40%;"></td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-										<td>
-											<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;">14 Juli 2020</label><br>
-											<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;">15 Juli 2020</label>
-										</td>
-										<td>
-											<div class="form-button-action">
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
-													<i class="fa fa-edit"></i>
-												</button>
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-													<i class="fa fa-times"></i>
-												</button>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td><img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-2.png'); ?>" alt="" class="img-fluid" style="width: 40%;"></td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-										<td>
-											<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;">14 Juli 2020</label><br>
-											<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;">15 Juli 2020</label>
-										</td>
-										<td>
-											<div class="form-button-action">
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
-													<i class="fa fa-edit"></i>
-												</button>
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-													<i class="fa fa-times"></i>
-												</button>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td><img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-3.png'); ?>" alt="" class="img-fluid" style="width: 40%;"></td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-										<td>
-											<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;">14 Juli 2020</label><br>
-											<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;">15 Juli 2020</label>
-										</td>
-										<td>
-											<div class="form-button-action">
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
-													<i class="fa fa-edit"></i>
-												</button>
-												<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-													<i class="fa fa-times"></i>
-												</button>
-											</div>
-										</td>
-									</tr>
-									
+									<?php foreach ($history->result() as $data) { ?>
+										<tr>
+
+											<td><?php echo $counter++; ?></td>
+											<td>
+												<img src="<?php echo base_url('assets/img/histori-suplai/' . $data->IMAGE); ?>" alt="<?php echo $data->DESCRIPTION; ?>" class="img-fluid">
+											</td>
+											<td><?php echo $data->NAME; ?></td>
+											<td>
+												<?php
+												$createDate = strtotime($data->CREATED);
+												$updateDate = strtotime($data->UPDATED);
+												?>
+												<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;"><?php echo date('l, j F Y', $createDate); ?></label><br>
+												<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;"> <?php echo ($updateDate != null ? date('l, j F Y', $updateDate) : ' -'); ?></label>
+											</td>
+											<td>
+												<div class="form-button-action">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Suplai" onclick='editModal("<?php echo $data->REC_ID; ?>")'>
+														<i class="fa fa-edit"></i>
+													</button>
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Suplai" onclick='deleteData("<?php echo $data->REC_ID; ?>")'>
+														<i class="fa fa-times"></i>
+													</button>
+												</div>
+											</td>
+										</tr>
+									<?php } ?>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 
 	<?php $this->load->view('templates-cms/copyright'); ?>
 
+</div>
+<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<form id="formHistory" enctype="multipart/form-data">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="fw-mediumbold">
+							Tambah</span>
+						<span class="fw-light">
+							Suplai Baru
+						</span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Nama Suplai</label>
+								<input id="supplyName" name="supplyName" type="text" class="form-control" placeholder="Di isi dengan nama suplai">
+								<small id="nameHelp" class="form-err form-text">Nama suplai tidak boleh kosong</small>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Detail Suplai</label>
+								<input id="supplyDetail" name="supplyDetail" type="text" class="form-control" placeholder="Di isi dengan detail suplai">
+								<small id="detailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Gambar Suplai</label>
+								<div class="mt-2 dropzone" id="dz-upload">
+									<!-- <div class="dz-default dz-message"></div> -->
+									<div class="dz-message" data-dz-message>
+										<span class="d-flex justify-content-center">Klik / drag gambar untuk memulai proses upload </span>
+									</div>
+
+								</div>
+								<small id="imageHelp" class="form-err form-text">Gambar tidak boleh kosong</small>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer no-bd">
+					<button type="submit" id="addRowButton" class="btn btn-primary">Tambah</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<form id="formUpdate">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span class="fw-mediumbold">
+							Edit</span>
+						<span class="fw-light">
+							Suplai
+						</span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Nama Suplai</label>
+								<input id="editName" name="editName" type="text" class="form-control">
+								<small id="editNameHelp" class="form-err form-text">Nama suplai tidak boleh kosong</small>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Detail Suplai</label>
+								<input id="editDetail" name="editDetail" type="text" class="form-control">
+								<small id="editDetailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Gambar Suplai</label>
+								<img id="editImage" class="img-fluid mx-auto">
+							</div>
+						</div>
+						<input id="editID" name="editID" type="hidden" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer no-bd">
+					<button type="submit" id="editButton" class="btn btn-primary">Edit</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
 </div>

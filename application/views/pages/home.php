@@ -141,7 +141,7 @@
         </div>
     </section>
 
-    <section id="portfolio"  class="section-bg">
+    <section id="portfolio" class="section-bg">
         <div class="container">
 
             <header class="section-header">
@@ -157,9 +157,9 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php echo base_url('assets/img/product-list/CATHODIC-PROTECTION.PNG'); ?>" class="img-fluid" alt="">
+                    <img src="<?php echo base_url('assets/img/product-list/CATHODIC-PROTECTION.png'); ?>" class="img-fluid" alt="">
                 </div>
-                
+
             </div>
 
             <div class="row mt-5" data-aos="fade-up">
@@ -185,7 +185,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php echo base_url('assets/img/product-list/KOSONG-1.PNG'); ?>" class="img-fluid" alt="">
+                    <img src="<?php echo base_url('assets/img/product-list/KOSONG-1.png'); ?>" class="img-fluid" alt="">
                 </div>
             </div>
 
@@ -214,7 +214,7 @@
                 <div class="col-md-6">
                     <img src="<?php echo base_url('assets/img/product-list/DECK-STORE.png'); ?>" class="img-fluid" alt="">
                 </div>
-                
+
             </div>
 
             <div class="row mt-5" data-aos="fade-up">
@@ -254,9 +254,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php echo base_url('assets/img/product-list/ROPE.PNg'); ?>" class="img-fluid" alt="">
+                    <img src="<?php echo base_url('assets/img/product-list/ROPE.png'); ?>" class="img-fluid" alt="">
                 </div>
-                
+
             </div>
 
             <div class="row mt-5" data-aos="fade-up">
@@ -281,7 +281,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php echo base_url('assets/img/product-list/KOSONG-2.PNG'); ?>" class="img-fluid" alt="">
+                    <img src="<?php echo base_url('assets/img/product-list/KOSONG-2.png'); ?>" class="img-fluid" alt="">
                 </div>
             </div>
 
@@ -309,7 +309,7 @@
                 <div class="col-md-6">
                     <img src="<?php echo base_url('assets/img/product-list/SAFETY-EQ.png'); ?>" class="img-fluid" alt="">
                 </div>
-                
+
             </div>
 
             <div class="row mt-5" data-aos="fade-up">

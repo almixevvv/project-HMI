@@ -22,6 +22,7 @@
     <link href="<?php echo base_url('lib/lightbox/css/lightbox.min.css'); ?>" rel="stylesheet">
 
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('lib/dropzone/dropzone.css'); ?>">
 </head>
 
 <body>

@@ -13,7 +13,9 @@ class Histori_suplai extends CI_Controller
 
     public function index()
     {
-        $data['page']   = 'Histori Suplai';
+        $data['page']       = 'Histori Suplai';
+        $data['history']    = $this->cms->getSupplyHistory();
+        $data['counter']    = 1;
 
         $this->load->view('templates-cms/header', $data);
         $this->load->view('templates-cms/navbar');
