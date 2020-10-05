@@ -50,7 +50,12 @@
 											<td>
 												<img src="<?php echo base_url('assets/img/histori-suplai/' . $data->IMAGE); ?>" alt="<?php echo $data->DESCRIPTION; ?>" class="img-fluid">
 											</td>
-											<td><?php echo $data->NAME; ?></td>
+											<td>
+											    Name : <br>
+											    <b><?php echo $data->NAME; ?></b><br><br>
+											    Detail :<br>
+											    <b><?php echo $data->DESCRIPTION; ?></b>
+											</td>
 											<td>
 												<?php
 												$createDate = strtotime($data->CREATED);

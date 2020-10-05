@@ -10,6 +10,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2 class="text-capitalize">"Jangan sungkan untuk menghubungi kami</br>kami siap membantu untuk segala kebutuhan kapal anda."</h2>
+                            <a href="#contact" class="btn-get-started scrollto">Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
@@ -31,34 +32,38 @@
                     </header>
                 </div>
 
-                <div class="col-md-4 wow fadeInUp">
-                    <div class="histori-col">
-                        <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-1.png'); ?>" alt="" class="img-fluid">
-                            <!-- <div class="icon"><i class="ion-settings"></i></div> -->
-                        </div>
-                        <p class="title text-capitalize">Menjadi supplier kapal laut terlengkap guna memenuhi berbagai kebutuhan customer.</p>
-                    </div>
-                </div>
+                <?php foreach ($supplyHistory->result() as $data) { ?>
 
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="histori-col">
-                        <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-2.png'); ?>" alt="" class="img-fluid">
-                            <!-- <div class="icon"><i class="ion-link"></i></div> -->
+                    <div class="d-none col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="histori-col">
+                            <div class="img mb-4">
+                                <a href="<?php echo base_url('history/detail?id=' . $data->IMAGE_PARENT); ?>">
+                                    <img src="<?php echo base_url('assets/img/histori-suplai/' . $data->IMAGE); ?>" alt="<?php echo $data->NAME; ?>" class="img-fluid">
+                                </a>
+                            </div>
+                            <p class="title"><?php echo $data->DESCRIPTION; ?></p>
                         </div>
-                        <p class="title text-capitalize">Menjalin kerjasama yang baik, flesibel dan saling menguntungkan dengan customer.</p>
                     </div>
-                </div>
 
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="histori-col">
-                        <div class="img mb-5">
-                            <img src="<?php echo base_url('assets/img/histori-suplai/EXAMPLE-3.png'); ?>" alt="" class="img-fluid">
-                            <!-- <div class="icon"><i class="ion-loop"></i></div> -->
+                    <div class="d-md-block col-md-4 wow fadeInUp my-4" data-wow-delay="0.2s">
+                        <div class="histori-col h-100">
+                            <div class="img mb-4">
+                                <a href="<?php echo base_url('history/detail?id=' . $data->IMAGE_PARENT); ?>">
+                                    <img src="<?php echo base_url('assets/img/histori-suplai/' . $data->IMAGE); ?>" alt="<?php echo $data->NAME; ?>" class="img-fluid w-100">
+                                </a>
+                            </div>
+                            <p class="title"><?php echo $data->DESCRIPTION; ?></p>
                         </div>
-                        <p class="title text-capitalize">Memberikan pelayanan terbaik dan kualitas barang sesuai kebutuhan.</p>
                     </div>
+
+                <?php } ?>
+
+                <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <span class="d-flex justify-content-center justify-content-md-end">
+                        <a href="<?php echo base_url('history/supply'); ?>" id="readMoreButton" role="button" style="color: #16566b; transition: 0.5s;">
+                            <h5>Lihat Selengkapnya</h5>
+                        </a>
+                    </span>
                 </div>
 
             </div>
@@ -154,6 +159,7 @@
                     <ul class="list-group">
                         <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Zinc Anode</li>
                         <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Alumunium Anode</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -180,6 +186,7 @@
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Tableware Utensils</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Galley Utensils</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Hardware</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -206,6 +213,7 @@
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Petroleum Produts</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Oil Pollution Equipment</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Safety Protective Gear</li>
+                                <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -223,6 +231,7 @@
                     <ul class="list-group">
                         <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> JIS Marine Valve</li>
                         <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Butterfly Valve</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -240,7 +249,6 @@
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Anchor Chain</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Chains & Links</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Shackles</li>
-
                             </ul>
                         </div>
                         <div class="col-6">
@@ -249,6 +257,7 @@
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Wire Clips</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Mooring Ropes</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Wire Ropes</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -275,6 +284,7 @@
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Nautical Recording Paper</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Office Consumables</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Publication and Charts</li>
+                                <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -301,6 +311,7 @@
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Life Boat & Life Raft Accesories</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Safety Lights</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Safety Signs</li>
+                                <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -328,6 +339,7 @@
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Lighting Fixtures</li>
                                 <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Plugs & Sockes</li>
                                 <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Torch</li>
+                                <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Dan lain-lain</li>
                             </ul>
                         </div>
                     </div>
@@ -357,7 +369,7 @@
         <div class="container">
 
             <div class="section-header">
-                <h3>Haluan Maritim Internasional</h3>
+                <h3>PT Haluan Maritim Internasional</h3>
                 <blockquote class="blockquote">
                     <p> <i> "Jangan sungkan untuk menghubungi kami, kami siap membantu untuk segala kebutuhan kapal anda" </i></p>
                 </blockquote>
@@ -396,7 +408,7 @@
             <div class="form">
                 <div id="sendmessage">Your message has been sent. Thank you!</div>
                 <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
+                <form action="#" method="post" role="form" class="contactForm" id="contactForm">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Nama anda" data-rule="minlen:4" data-msg="Tolong tuliskan lebih dari 4 karakter" />
@@ -412,7 +424,7 @@
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Tolong tuliskan pesan anda untuk kami" placeholder="Pesan"></textarea>
+                        <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Tolong tuliskan pesan anda untuk kami" placeholder="Pesan"></textarea>
                         <div class="validation"></div>
                     </div>
                     <div class="text-center"><button type="submit">Kirim Pesan</button></div>

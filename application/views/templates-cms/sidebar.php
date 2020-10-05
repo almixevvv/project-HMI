@@ -24,10 +24,16 @@
 					<div class="collapse in" id="collapseExample">
 						<ul class="nav">
 							<li>
-								<a href="#settings">
+								<a href="<?php echo base_url('cms/dashboard'); ?>">
+									<span class="link-collapse">Dashboard</span>
+								</a>
+							</li>
+							<li>
+								<a href="#settings" id="modalChangePassword">
 									<span class="link-collapse">Change Password</span>
 								</a>
 							</li>
+
 						</ul>
 					</div>
 				</div>

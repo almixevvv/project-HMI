@@ -1,3 +1,86 @@
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body mx-auto">
+                <img src="" id="imagepreview" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body mx-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Nama Pengirim</label>
+                            <input id="emailName" type="text" class="form-control" readonly style="opacity: 1 !important; background-color: white!important;">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Email Pengirim</label>
+                            <input id="emailSender" type="text" class="form-control" readonly style="opacity: 1 !important; background-color: white!important;">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Pesan</label>
+                            <textbox id="emailMessage" type="text" class="form-control" readonly style="opacity: 1 !important; background-color: white!important;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="mb-0">Ubah Password</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Password Baru</label>
+                            <input id="formPassword" type="password" class="form-control">
+                            <small id="passHelp" class="form-err form-text">Password tidak boleh kosong</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Konfirmasi Password</label>
+                            <input id="formConfirmPassword" type="password" class="form-control">
+                            <small id="confirmHelp" class="form-err form-text">Password tidak sama</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="submitPassword">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>
 <script src="<?php echo base_url('assets/cms/js/core/jquery.3.2.1.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/cms/js/core/popper.min.js'); ?>"></script>
@@ -39,10 +122,107 @@
 <link rel="stylesheet" href="<?php echo base_url('lib/dropzone/dropzone.css'); ?>">
 <script src="<?php echo base_url('lib/dropzone/dropzone.js'); ?>"></script>
 <script>
+    /* OPEN SUPPLY HISTORY IMAGE */
+    $(".history-popup").on("click", function() {
+        // alert('woi');
+        let imageSource = $(this).data('image');
+        $('#imagepreview').attr('src', baseUrl + 'assets/img/histori-suplai/' + imageSource);
+        $('#imagemodal').modal('show');
+    });
+
+    /* OPEN CHANGE PASSWORD MODAL */
+    $('#modalChangePassword').on('click', function() {
+        $('#changePassword').modal('show');
+        $('#submitPassword').prop('disabled', true);
+    });
+
+    /* FORM PASSWORD VALIDATION */
+    $('#formPassword').on('change paste keyup blur', function() {
+
+        if ($(this).val().length == 0) {
+            $(this).parent().addClass('has-error has-feedback');
+            $('#passHelp').css('display', 'block');
+            $('#submitPassword').prop('disabled', true);
+        } else {
+            $(this).parent().removeClass('has-error has-feedback');
+            $('#passHelp').css('display', 'none');
+        }
+
+    });
+
+    $('#formConfirmPassword').on('change paste keyup blur', function() {
+
+        let pass = $('#formPassword').val();
+
+        if (pass == $(this).val()) {
+            $(this).parent().removeClass('has-error has-feedback');
+            $('#confirmHelp').css('display', 'none');
+            $('#submitPassword').prop('disabled', false);
+        } else {
+            $(this).parent().addClass('has-error has-feedback');
+            $('#confirmHelp').css('display', 'block');
+            $('#submitPassword').prop('disabled', true);
+        }
+    });
+
+    /* SUBMIT CHANGE PASSWORD FORM */
+    $('#submitPassword').click(function() {
+        let password = $('#formPassword').val();
+
+        $.post(baseUrl + 'API/updatePassword', {
+            pass: password
+        }, function(ex) {
+            if (ex.code) {
+                swal({
+                    title: 'Berhasil',
+                    text: 'Password berhasil dirubah',
+                    icon: 'success',
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-success'
+                        }
+                    }
+                }).then((result) => {
+                    if (result) {
+                        window.location.replace(baseUrl + 'cms/dashboard');
+                    } else {
+                        swal.close();
+                    }
+                });
+            } else {
+                swal({
+                    title: 'Gagal',
+                    text: 'Password tidak berhasil dirubah',
+                    icon: 'error',
+                });
+            }
+        });
+    });
+
+    /* SHOW MESSAGE POPUP */
+    $('.message-popup').on('click', function() {
+
+        let senderName = $(this).data('sender');
+        let senderEmail = $(this).data('email');
+        let senderID = $(this).data('recid');
+        let senderMessage = $(this).data('message');
+
+        $('#emailName').val(senderName);
+        $('#emailSender').val(senderEmail);
+        $('#emailMessage').text(senderMessage);
+
+        $('#messageModal').modal('show');
+
+        $.post(baseUrl + 'API/updateMessageStatus', {
+            id: senderID
+        }, function(ex) {
+            // console.log(ex);
+        });
+    });
+
     Dropzone.autoDiscover = false;
-    let fileName = '';
-    let fileType = '';
-    var fileUrl = '';
+    let fileName = new Array();
+    let fileType = new Array();
 
     var validateData = function(container) {
         if (container.val().length == 0) {
@@ -208,15 +388,14 @@
             dictInvalidFileType: 'Tipe file tidak sesuai format',
             dictCancelUpload: 'Batalkan Upload',
             dictRemoveFile: 'Hapus file',
-            maxFiles: 1,
             maxfilesexceeded: function(file) {
                 this.removeAllFiles();
                 this.addFile(file);
             },
             success: function(file, resp) {
-                // console.log(resp);
-                fileName = resp.upload_data.file_name;
-                fileType = resp.upload_data.file_type;
+                console.log(resp);
+                fileName.push(resp.upload_data.file_name);
+                fileType.push(resp.upload_data.file_type);
             },
             removedfile: function(file) {
                 $.post(baseUrl + '/API/deleteIntroFiles', {
@@ -238,7 +417,7 @@
             if (validateData($('#supplyDetail')) && validateData($('#supplyName')) && validateImage()) {
 
                 console.log('clear proses');
-                $.post(baseUrl + 'API/postSupplyData', formData + '&fileName=' + fileName + '&fileType=' + fileType, function(ex) {
+                $.post(baseUrl + 'API/postSupplyData', formData + '&fileName=' + fileName.toString() + '&fileType=' + fileType.toString(), function(ex) {
                     console.log(ex);
                     if (ex.code == '200') {
                         swal({

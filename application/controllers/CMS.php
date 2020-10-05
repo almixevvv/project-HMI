@@ -6,7 +6,7 @@ class CMS extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
         // 4107b788b1e0e83df52f4af878e45cd350f3655f69fa714ea99410bc1c06d792
         // f00ab278e3
     }
@@ -15,13 +15,20 @@ class CMS extends CI_Controller
     {
         $data['page']   = 'Login';
 
+        if ($this->session->has_userdata('ID')) {
+            redirect(base_url('cms/dashboard'));
+        }
+
         $this->load->view('templates-cms/header', $data);
         $this->load->view('pages-cms/login');
     }
 
     public function dashboard()
     {
-        $data['page']   = 'Dashboard';
+        $data['page']           = 'Dashboard';
+        $data['queryHistory']   = $this->cms->getLogData();
+        $data['totalHistory']   = $this->cms->getSupplyCount();
+        $data['unreadMessages'] = $this->cms->getUnreadEmail();
 
         $this->load->view('templates-cms/header', $data);
         $this->load->view('templates-cms/navbar');

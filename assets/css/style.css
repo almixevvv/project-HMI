@@ -1,9 +1,3 @@
-/*
-  Theme Name: BizPage
-  Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
-  Author: BootstrapMade.com
-  License: https://bootstrapmade.com/license/
-*/
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -169,6 +163,13 @@ h6 {
 # Intro Section
 --------------------------------------------------------------*/
 #intro {
+	display: table;
+	width: 100%;
+	height: 100vh;
+	background: #000;
+}
+
+#404-intro {
 	display: table;
 	width: 100%;
 	height: 100vh;
@@ -564,6 +565,26 @@ body.mobile-nav-active #mobile-nav-toggle {
 	padding-bottom: 15px;
 }
 
+.product-detail h3::before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 120px;
+	height: 1px;
+	background: #ddd;
+	bottom: 1px;
+}
+
+.product-detail h3::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 3px;
+	background: #16566b;
+	bottom: 0;
+}
+
 .section-header h3::before {
 	content: '';
 	position: absolute;
@@ -765,6 +786,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	border-radius: 0 0 4px 4px;
 	box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 	margin-bottom: 20px;
+	height: 36vw;
 }
 
 #histori .histori-col .img {
@@ -773,6 +795,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #histori .histori-col .img img {
 	border-radius: 4px 4px 0 0;
+	width: 30vw;
+	height: 35vh;
+	object-fit: contain;
 }
 
 #histori .histori-col .icon {
@@ -1608,4 +1633,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 	text-align: center;
 	font-size: 13px;
 	color: #ddd;
+}
+
+/* MEDIA BREAKPOINT */
+@media (max-width: 768px) {
+	#bottom-navbar.header-scrolled {
+		background: rgb(255 255 255);
+	}
+}
+
+@media (min-width: 769px) {
+	#bottom-navbar.header-scrolled {
+		background: rgba(22, 86, 107, 0.9);
+	}
 }

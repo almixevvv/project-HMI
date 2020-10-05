@@ -1,6 +1,7 @@
 <style type="text/css">
   body {
     background: url('assets/img/intro-carousel/BACKGROUND 3.jpg') center no-repeat fixed;
+    overflow: hidden;
   }
 </style>
 
@@ -8,7 +9,7 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5" style="background-color: transparent;border:transparent;">
-      <div class="card-body">
+      <div class="card-body pt-5">
         <div class="d-flex justify-content-center">
           <img src="<?php echo base_url('assets/img/logo/Haluan_Maritim_FullLogo.png'); ?>" alt="Haluan Maritim Logo" style="width: 35%;">
         </div>
@@ -36,4 +37,4 @@
 </body>
 <script src="<?php echo base_url('assets/cms/js/core/jquery.3.2.1.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/cms/js/plugin/sweetalert/sweetalert.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/login-cms.1.0.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/login-cms.1.0.js'); ?>"></script>

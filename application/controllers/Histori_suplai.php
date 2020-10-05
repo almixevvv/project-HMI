@@ -14,7 +14,7 @@ class Histori_suplai extends CI_Controller
     public function index()
     {
         $data['page']       = 'Histori Suplai';
-        $data['history']    = $this->cms->getSupplyHistory();
+        $data['history']    = $this->cms->getSupplyCount();
         $data['counter']    = 1;
 
         $this->load->view('templates-cms/header', $data);
@@ -22,5 +22,33 @@ class Histori_suplai extends CI_Controller
         $this->load->view('templates-cms/sidebar');
         $this->load->view('pages-cms/histori_suplai');
         $this->load->view('templates-cms/footer');
+    }
+
+    public function supplyHistoryList()
+    {
+        $data['page']       = 'Histori Suplai';
+        $data['allHistory']  = $this->cms->getSupplyCount();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
+        $this->load->view('pages/history', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function detailSupply()
+    {
+        $queryProduct = $this->history->getSupplyDetail($this->input->get('id'));
+        $prodTitle = $queryProduct->row();
+
+        $data['page']               = 'Histori Suplai';
+        $data['randomProduct']      = $this->history->getRandomSupply();
+        $data['allHistory']         = $queryProduct;
+        $data['productName']        = $prodTitle->NAME;
+        $data['productDescription'] = $prodTitle->DESCRIPTION;
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
+        $this->load->view('pages/historyDetail', $data);
+        $this->load->view('templates/footer');
     }
 }
