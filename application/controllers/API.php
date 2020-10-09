@@ -108,8 +108,9 @@ class API extends CI_Controller
         $this->load->helper('file');
 
         $uploadPath = 'assets/img/histori-suplai/' . $this->input->post('images');
+        $queryDelete = $this->cms->deleteHistoryImage($this->input->post('images'));
 
-        if (unlink($uploadPath)) {
+        if (unlink($uploadPath) && $queryDelete) {
             $msg = array(
                 'status'    => 200,
                 'message'   => 'file deleted successfully',
@@ -185,26 +186,88 @@ class API extends CI_Controller
 
     public function updateSupplyData()
     {
-        $data = array(
+        $parentData = array(
             'DESCRIPTION'   => $this->input->post('editDetail'),
             'NAME'          => $this->input->post('editName'),
             'UPDATED'       => date('Y-m-d h:i:s')
         );
 
-        $queryUpdate = $this->cms->updateSupply($this->input->post('editID'), $data);
+        if ($this->input->post('fileName') != null && $this->input->post('fileType') != null) {
 
-        if ($queryUpdate) {
-            echo json_encode(array(
-                'status'    => 200,
-                'code'      => 200,
-                'message'   => 'data updated'
-            ));
+            $imageArr = explode(',', $this->input->post('fileName'));
+            $imgCounter = count($imageArr);
+
+            $this->db->trans_begin();
+
+            for ($i = 0; $i < $imgCounter; $i++) {
+                $imageData = array(
+                    'IMAGE'         => $imageArr[$i],
+                    'IMAGE_PARENT'  => $this->input->post('editID'),
+                    'STATUS'        => 'ACTIVE'
+                );
+
+                $this->cms->insertSupply($imageData);
+            }
+
+            $this->cms->updateSupply($this->input->post('editID'), $parentData);
+
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+
+                echo json_encode(array(
+                    'status'    => 200,
+                    'code'      => 501,
+                    'message'   => 'error while processing data'
+                ));
+            } else {
+                $this->db->trans_commit();
+
+                $logData = array(
+                    'USER_ID'       => $this->session->userdata('NAME'),
+                    'ACTION_TYPE'   => 'UPDATE',
+                    'ACTION_MODULE' => 'SUPPLY',
+                    'ACTION_DATA'   => $this->input->post('editName'),
+                    'CREATED_AT'    => date('Y-m-d h:i:s')
+                );
+
+                $this->cms->postLogData($logData);
+
+                echo json_encode(array(
+                    'status'    => 200,
+                    'code'      => 200,
+                    'message'   => 'data updated'
+                ));
+            }
         } else {
-            echo json_encode(array(
-                'status'    => 200,
-                'code'      => 501,
-                'message'   => 'error while processing data'
-            ));
+            $this->cms->updateSupply($this->input->post('editID'), $parentData);
+
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+
+                echo json_encode(array(
+                    'status'    => 200,
+                    'code'      => 501,
+                    'message'   => 'error while processing data'
+                ));
+            } else {
+                $this->db->trans_commit();
+
+                $logData = array(
+                    'USER_ID'       => $this->session->userdata('NAME'),
+                    'ACTION_TYPE'   => 'UPDATE',
+                    'ACTION_MODULE' => 'SUPPLY',
+                    'ACTION_DATA'   => $this->input->post('editName'),
+                    'CREATED_AT'    => date('Y-m-d h:i:s')
+                );
+
+                $this->cms->postLogData($logData);
+
+                echo json_encode(array(
+                    'status'    => 200,
+                    'code'      => 200,
+                    'message'   => 'data updated'
+                ));
+            }
         }
     }
 
@@ -213,6 +276,17 @@ class API extends CI_Controller
         $queryDelete = $this->cms->deleteSupply($this->input->post('id'));
 
         if ($queryDelete) {
+
+            $data = array(
+                'USER_ID'       => $this->session->userdata('NAME'),
+                'ACTION_TYPE'   => 'DELETE',
+                'ACTION_MODULE' => 'SUPPLY',
+                'ACTION_DATA'    => $this->input->post('id'),
+                'CREATED_AT'    => date('Y-m-d h:i:s')
+            );
+
+            $this->cms->postLogData($data);
+
             echo json_encode(array(
                 'status'    => 200,
                 'code'      => 200,
@@ -229,20 +303,33 @@ class API extends CI_Controller
 
     public function getSupplyDetail()
     {
-        $queryDetail = $this->cms->getSupplyDetail($this->input->get('id'));
+        $queryDetail = $this->cms->getSpecificSupply($this->input->get('id'));
+        $counter = 0;
 
         foreach ($queryDetail->result() as $dt) {
-            $dtArr['data'] = array(
-                'REC_ID'        => $dt->REC_ID,
+            $imgArr[$counter] = array(
+                'IMAGE' => $dt->IMAGE
+            );
+
+            $dtArr = array(
+                'IMAGE_PARENT'  => $dt->IMAGE_PARENT,
                 'DESCRIPTION'   => $dt->DESCRIPTION,
-                'IMAGE'         => $dt->IMAGE,
                 'NAME'          => $dt->NAME
             );
+
+            $counter++;
         }
 
-        $encode = json_encode($dtArr);
+        $imgEncode = json_encode($imgArr);
+        $dtEncode = json_encode($dtArr);
 
-        echo $encode;
+        echo json_encode(array(
+            'status'    => 200,
+            'code'      => 200,
+            'data'      => json_decode($dtEncode),
+            'image'     => json_decode($imgEncode),
+            'message'   => 'success'
+        ));
     }
 
     public function postLogin()

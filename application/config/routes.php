@@ -9,6 +9,7 @@ $route['histori']   = 'Home/history';
 $route['cms'] = 'CMS';
 $route['cms/dashboard'] = 'CMS/dashboard';
 $route['cms/history'] = 'Histori_suplai';
+$route['cms/sales_order'] = 'Sales_order';
 
 $route['history/supply'] = 'Histori_suplai/supplyHistoryList';
 $route['history/detail'] = 'Histori_suplai/detailSupply';

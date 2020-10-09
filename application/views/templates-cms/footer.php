@@ -224,6 +224,9 @@
     let fileName = new Array();
     let fileType = new Array();
 
+    let editFileName = new Array();
+    let editFileType = new Array();
+
     var validateData = function(container) {
         if (container.val().length == 0) {
             container.parent().addClass('has-error has-feedback');
@@ -261,6 +264,14 @@
         validateData($(this));
     });
 
+    $('#editName').on('change paste keyup blur', function() {
+        validateData($(this));
+    });
+
+    $('#editDetail').on('change paste keyup blur', function() {
+        validateData($(this));
+    });
+
     var swalFireDelete = function(id) {
         $.post(baseUrl + 'API/deleteSupplyData', {
             id: id
@@ -281,6 +292,16 @@
                     swal.close();
                 }
             });
+        });
+    }
+
+    var initDropzone = function() {
+        $('.dropzone').each(function() {
+
+            let dropzoneControl = $(this)[0].dropzone;
+            if (dropzoneControl) {
+                dropzoneControl.destroy();
+            }
         });
     }
 
@@ -312,52 +333,183 @@
 
     var editModal = function(id) {
 
+        initDropzone();
+
         $('#editRowModal').modal({
             show: true
         });
 
+        var imageList;
+
         $.get(baseUrl + 'API/getSupplyDetail', {
             id: id
         }, function(ex) {
-            $('#editID').val(ex.data.REC_ID);
+            $('#editID').val(ex.data.IMAGE_PARENT);
             $('#editName').val(ex.data.NAME);
             $('#editDetail').val(ex.data.DESCRIPTION);
-            $('#editImage').attr('src', baseUrl + 'assets/img/histori-suplai/' + ex.data.IMAGE);
-            $('#editImage').attr('alt', ex.data.DESCRIPTION);
-        });
 
-        $('#formUpdate').submit(function(ex) {
-            ex.preventDefault();
+            $('#dz-existing').dropzone({
+                url: baseUrl + '/API/postSupplyImage',
+                paramName: 'imgUpload',
+                acceptedFiles: 'image/*',
+                addRemoveLinks: true,
+                autoProcessQueue: true,
+                dictFallbackMessage: 'Browser tidak mendukung untuk upload file',
+                dictFileTooBig: 'Upload gagal, file terlalu besar',
+                dictInvalidFileType: 'Tipe file tidak sesuai format',
+                dictCancelUpload: 'Batalkan Upload',
+                dictRemoveFile: 'Hapus file',
+                clickable: true,
+                init: function() {
+                    var myDropzone = this;
 
-            let serialize = $('#formUpdate').serialize();
+                    $.each(ex.image, function(index, value) {
 
-            $.post(baseUrl + 'API/updateSupplyData', serialize, function(resp) {
-                console.log(resp);
-                if (resp.code == '200') {
+                        var mockFile = {
+                            name: value.IMAGE,
+                            size: 12345,
+                            accepted: true,
+                            kind: 'image'
+                        };
+
+                        myDropzone.files.push(mockFile);
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.emit("thumbnail", mockFile, baseUrl + '/assets/img/histori-suplai/' + value.IMAGE);
+                        myDropzone.emit("complete", mockFile);
+                    });
+
+                    myDropzone.on("thumbnail", function(file) {
+                        console.log('created');
+                    });
+                },
+                success: function(file, resp) {
+                    editFileName.push(resp.upload_data.file_name);
+                    editFileType.push(resp.upload_data.file_type);
+                },
+                removedfile: function(file) {
                     swal({
-                        title: 'Berhasil',
-                        text: 'Data berhasil ditambahkan',
-                        icon: 'success',
+                        title: 'Hapus Data',
+                        text: 'Apakah anda yakin akan menghapus data?',
+                        icon: 'warning',
                         buttons: {
                             confirm: {
+                                text: 'Yakin',
                                 className: 'btn btn-success'
                             },
                             cancel: {
                                 visible: true,
+                                text: 'Batal',
                                 className: 'btn btn-danger'
                             }
                         }
                     }).then((result) => {
                         if (result) {
-                            window.location.replace(baseUrl + 'cms/history');
+                            $.post(baseUrl + '/API/deleteIntroFiles', {
+                                images: file.name
+                            }, function(resp) {
+
+                                if (resp.code === 200) {
+                                    swal({
+                                        title: 'Hapus Data',
+                                        text: 'Proses hapus data berhasil',
+                                        icon: 'success',
+                                        buttons: {
+                                            confirm: {
+                                                text: 'Kembali',
+                                                className: 'btn btn-success'
+                                            }
+                                        }
+                                    }).then((result) => {
+                                        if (result) {
+                                            window.location.replace(baseUrl + 'cms/history');
+                                        }
+                                    });
+                                } else {
+                                    swal({
+                                        title: 'Hapus Data',
+                                        text: 'Proses hapus data gagal, silahkan coba kembali',
+                                        icon: 'error',
+                                        buttons: {
+                                            confirm: {
+                                                text: 'Kembali',
+                                                className: 'btn btn-success'
+                                            },
+                                            cancel: {
+                                                visible: true,
+                                                text: 'Batal',
+                                                className: 'btn btn-danger'
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+
+                            var _ref;
+                            return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                         } else {
                             swal.close();
+                        }
+                    });
+                }
+            });
+
+            $('.dz-details').on('click', function() {
+                let parent = $(this);
+                let imageContainer = parent.siblings('.dz-image');
+                let imageSrc = imageContainer.children('img').attr('src');
+
+                window.open(imageSrc, '_blank');
+            });
+
+            $('#formUpdate').submit(function(ex) {
+                ex.preventDefault();
+
+                let formData = $('#formUpdate input').serialize();
+
+                // console.log(editFileName);
+                // console.log(editFileType);
+
+                if (validateData($('#editName')) && validateData($('#editDetail'))) {
+                    $.post(baseUrl + 'API/updateSupplyData', formData + '&fileName=' + editFileName.toString() + '&fileType=' + editFileType.toString(), function(ex) {
+                        if (ex.code === 200) {
+                            swal({
+                                title: 'Update Data',
+                                text: 'Proses update data berhasil',
+                                icon: 'success',
+                                buttons: {
+                                    confirm: {
+                                        text: 'Kembali',
+                                        className: 'btn btn-success'
+                                    }
+                                }
+                            }).then((result) => {
+                                if (result) {
+                                    window.location.replace(baseUrl + 'cms/history');
+                                }
+                            });
+                        } else {
+                            swal({
+                                title: 'Update Data',
+                                text: 'Proses update data gagal, silahkan coba kembali',
+                                icon: 'error',
+                                buttons: {
+                                    confirm: {
+                                        text: 'Kembali',
+                                        className: 'btn btn-success'
+                                    },
+                                    cancel: {
+                                        visible: true,
+                                        text: 'Batal',
+                                        className: 'btn btn-danger'
+                                    }
+                                }
+                            });
                         }
                     });
                 } else {
                     swal({
                         title: 'Error!',
-                        text: 'Terjadi kesalahan dalam input data, harap coba lagi',
+                        text: 'Terjadi kesalahan dalam update data, harap coba lagi',
                         icon: 'error',
                         buttons: {
                             confirm: {
@@ -370,7 +522,10 @@
                         }
                     })
                 }
+
+
             });
+
         });
 
     }

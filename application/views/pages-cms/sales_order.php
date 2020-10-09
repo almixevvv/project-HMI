@@ -3,12 +3,6 @@
 		color: #F25961;
 		display: none;
 	}
-
-	.dropzone {
-		padding: 30px 20px 25px !important;
-		border: 2px dashed rgba(0, 0, 0, 0.13) !important;
-		background: transparent !important;
-	}
 </style>
 
 <div class="main-panel">
@@ -18,7 +12,7 @@
 				<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 					<div>
 						<h2 class="pb-2 fw-bold" style="color: #16566b">Haluan Maritim Internasional CMS</h2>
-						<h5 class="op-7 mb-2 fw-bold" style="color: #16566b">Histori Suplai</h5>
+						<h5 class="op-7 mb-2 fw-bold" style="color: #16566b">Sales Order</h5>
 					</div>
 				</div>
 			</div>
@@ -31,7 +25,7 @@
 							<!-- <h4 class="card-title">Histori Suplai</h4> -->
 							<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
 								<i class="fa fa-plus"></i>
-								Tambah Histori Suplai
+								Tambah Sales Order
 							</button>
 						</div>
 					</div>
@@ -41,44 +35,40 @@
 							<table id="add-row" class="display table table-striped table-hover">
 								<thead>
 									<tr>
-										<th style="width: 10%">No.</th>
-										<th style="width: 30%">Gambar</th>
-										<th style="width: 30%">Deskripsi</th>
-										<th style="width: 20%">Info</th>
+										<th style="width: 1%">No.</th>
+										<th style="width: 20%">PO</th>
+										<th style="width: 20%">Surat Jalan</th>
+										<th style="width: 20%">Pembayaran</th>
+										<th style="width: 20%">Bukti Penerimaan</th>
 										<th style="width: 10%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($history->result() as $data) { ?>
+									<?php foreach ($sales->result() as $data) { ?>
 										<tr>
-
 											<td><?php echo $counter++; ?></td>
 											<td>
-												<img src="<?php echo base_url('assets/img/histori-suplai/' . $data->IMAGE); ?>" alt="<?php echo $data->DESCRIPTION; ?>" class="img-fluid">
+												<label style="width: 6em;">No PO</label>:<label style="font-weight: bold;color: #16566b;"><?php echo $data->PO_NO; ?></label><br>
+												<label style="width: 6em;">Tanggal PO</label>:<label style="font-weight: bold;color: #16566b;"><?php echo date("d M Y", strtotime($data->PO_DATE)); ?></label><br>
+												<label style="width: 6em;">File PO</label>:<label><?php echo $data->FILE_PO; ?></label>
 											</td>
 											<td>
-												Name : <br>
-												<b><?php echo $data->NAME; ?></b><br><br>
-												Detail :<br>
-												<b><?php echo $data->DESCRIPTION; ?></b>
+												<label style="width: 8em;">Tanggal Kirim</label>:<label style="font-weight: bold;color: #16566b;"><?php echo date("d M Y", strtotime($data->DO_DATE)); ?></label><br>
+												<label style="width: 8em;">File Surat Jalan</label>:<label><?php echo $data->FILE_DO; ?></label>
 											</td>
 											<td>
-												<?php
-												$createDate = strtotime($data->CREATED);
-												$updateDate = strtotime($data->UPDATED);
-												?>
-												<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;"><?php echo date('l, j F Y', $createDate); ?></label><br>
-												<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;"> <?php echo ($updateDate != null ? date('l, j F Y', $updateDate) : ' -'); ?></label>
+												<?php if($data->STATUS == 'SUDAH BAYAR'):?>
+													<label style="width: 6em;">Status</label>:<label style="font-weight: bold;color: green;"><?php echo $data->STATUS; ?></label><br>
+												<?php else:?>
+													<label style="width: 6em;">Status</label>:<label style="font-weight: bold;color: red;"><?php echo $data->STATUS; ?></label><br>
+												<?php endif;?>
+												<label style="width: 6em;">File Invoice</label>:<label><?php echo $data->FILE_INVOICE; ?></label>
 											</td>
 											<td>
-												<div class="form-button-action">
-													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Suplai" onclick='editModal("<?php echo $data->REC_ID; ?>")'>
-														<i class="fa fa-edit"></i>
-													</button>
-													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Suplai" onclick='deleteData("<?php echo $data->REC_ID; ?>")'>
-														<i class="fa fa-times"></i>
-													</button>
-												</div>
+												<label><?php echo $data->FILE_TERIMA; ?></label>
+											</td>
+											<td>
+												
 											</td>
 										</tr>
 									<?php } ?>
@@ -132,9 +122,11 @@
 							<div class="form-group">
 								<label>Gambar Suplai</label>
 								<div class="mt-2 dropzone" id="dz-upload">
+									<!-- <div class="dz-default dz-message"></div> -->
 									<div class="dz-message" data-dz-message>
 										<span class="d-flex justify-content-center">Klik / drag gambar untuk memulai proses upload </span>
 									</div>
+
 								</div>
 								<small id="imageHelp" class="form-err form-text">Gambar tidak boleh kosong</small>
 							</div>
@@ -152,7 +144,7 @@
 </div>
 
 <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-	<form id="formUpdate" enctype="multipart/form-data">
+	<form id="formUpdate">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -186,10 +178,7 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Gambar Suplai</label>
-								<div class="mt-2 dropzone" id="dz-existing">
-									<div class="dz-message" data-dz-message>
-									</div>
-								</div>
+								<img id="editImage" class="img-fluid mx-auto">
 							</div>
 						</div>
 						<input id="editID" name="editID" type="hidden" class="form-control">

@@ -105,6 +105,18 @@ class M_cms extends CI_Model
     return $query;
   }
 
+  public function getSpecificSupply($id)
+  {
+    $this->db->select('*');
+    $this->db->from('v_g_supply_images');
+    $this->db->where('REC_ID', $id);
+    $this->db->order_by('CREATED', 'ASC');
+
+    $query = $this->db->get();
+
+    return $query;
+  }
+
 
   public function getSupplyHistory($lastCounter)
   {
@@ -120,8 +132,16 @@ class M_cms extends CI_Model
 
   public function updateSupply($id, $data)
   {
-    $this->db->where('REC_ID', $id);
+    $this->db->where('SUPPLY_ID', $id);
     $query = $this->db->update('g_histori_suplai', $data);
+
+    return $query;
+  }
+
+  public function deleteHistoryImage($id)
+  {
+    $this->db->where('IMAGE', $id);
+    $query = $this->db->delete('g_supply_images');
 
     return $query;
   }
