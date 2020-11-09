@@ -27,7 +27,7 @@ class Histori_suplai extends CI_Controller
     public function supplyHistoryList()
     {
         $data['page']       = 'Histori Suplai';
-        $data['allHistory']  = $this->cms->getSupplyCount();
+        $data['allHistory']  = $this->cms->getSupplyWithLimit(9, 1);
 
         $this->load->view('templates/header');
         $this->load->view('templates/navbar');

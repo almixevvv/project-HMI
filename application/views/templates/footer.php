@@ -70,10 +70,165 @@
 
     let collapseStatus = false;
 
+    let limit = 3;
+    let start = 10;
+    let loadCounter = 1;
+    let action = 'inactive';
+
     var validateEmail = function($email) {
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         return emailReg.test($email);
     }
+
+    var loadHistory = function(limit, start) {
+
+        $.get(baseUrl + 'API/getHistorySupply', {
+            limit: limit,
+            start: start,
+            counter: loadCounter
+        }, function(resp) {
+            console.log(resp);
+
+
+            if (resp.button) {
+                let $loadContainer = $('<div>').addClass('col-12 d-flex justify-content-center btn-container');
+                let $btnLoadMore = $('<a>').addClass('w-25 btn-load-more').text('Tampilkan Lebih Banyak').attr({
+                    onclick: 'manualLoad()'
+                });
+
+                $btnLoadMore.appendTo($loadContainer);
+                $('#autoloadHolder').append($loadContainer);
+
+            } else {
+
+                $.each(resp.data, function(index, val) {
+
+                    let $mobileHolder = $('<div>').addClass('d-none col-md-4 wow fadeInUp').data('wow-delay', '0.2s');
+                    let $mobileHistoryHolder = $('<div>').addClass('histori-col');
+                    let $mobileImageHolder = $('<div>').addClass('img mb-4');
+                    let $mobileAnchorHolder = $('<a>').attr('href', baseUrl + 'history/detail?id=' + val.PARENT);
+                    let $mobileImageSource = $('<img>').attr({
+                        src: baseUrl + 'assets/img/histori-suplai/' + val.IMAGE,
+                        alt: val.DESCRIPTION
+                    }).addClass('img-fluid');
+                    let $mobileTextHolder = $('<p>').text(val.DESCRIPTION).addClass('title text-capitalize');
+
+                    let $desktopHolder = $('<div>').addClass('d-md-block col-md-4 wow fadeInUp my-4').data('wow-delay', '0.2s');
+                    let $desktopHistoryHolder = $('<div>').addClass('histori-col h-100');
+                    let $desktopImageHolder = $('<div>').addClass('img mb-4');
+                    let $desktopAnchorHolder = $('<a>').attr('href', baseUrl + 'history/detail?id=' + val.PARENT);
+                    let $desktopImageSource = $('<img>').attr({
+                        src: baseUrl + 'assets/img/histori-suplai/' + val.IMAGE,
+                        alt: val.DESCRIPTION
+                    }).addClass('img-fluid');
+                    let $desktopTextHolder = $('<p>').text(val.DESCRIPTION).addClass('title text-capitalize');
+
+                    $mobileImageSource.appendTo($mobileAnchorHolder);
+                    $mobileAnchorHolder.appendTo($mobileImageHolder);
+                    $mobileImageHolder.appendTo($mobileHistoryHolder);
+                    $mobileTextHolder.appendTo($mobileHistoryHolder);
+                    $mobileHistoryHolder.appendTo($mobileHolder);
+
+                    $desktopImageSource.appendTo($desktopAnchorHolder);
+                    $desktopAnchorHolder.appendTo($desktopImageHolder);
+                    $desktopImageHolder.appendTo($desktopHistoryHolder);
+                    $desktopTextHolder.appendTo($desktopHistoryHolder);
+                    $desktopHistoryHolder.appendTo($desktopHolder);
+
+                    $('#autoloadHolder').append($desktopHolder);
+
+                });
+
+
+            }
+
+            action = 'inactive';
+
+        });
+    }
+
+    var manualLoad = function() {
+
+        start = start + limit;
+
+        $('.btn-container').remove();
+
+        $.get(baseUrl + 'API/getHistorySupply', {
+            limit: limit,
+            start: start,
+            counter: loadCounter
+        }, function(resp) {
+
+            $.each(resp.data, function(index, val) {
+
+                let $mobileHolder = $('<div>').addClass('d-none col-md-4 wow fadeInUp').data('wow-delay', '0.2s');
+                let $mobileHistoryHolder = $('<div>').addClass('histori-col');
+                let $mobileImageHolder = $('<div>').addClass('img mb-4');
+                let $mobileAnchorHolder = $('<a>').attr('href', baseUrl + 'history/detail?id=' + val.PARENT);
+                let $mobileImageSource = $('<img>').attr({
+                    src: baseUrl + 'assets/img/histori-suplai/' + val.IMAGE,
+                    alt: val.DESCRIPTION
+                }).addClass('img-fluid');
+                let $mobileTextHolder = $('<p>').text(val.DESCRIPTION).addClass('title text-capitalize');
+
+                let $desktopHolder = $('<div>').addClass('d-md-block col-md-4 wow fadeInUp my-4').data('wow-delay', '0.2s');
+                let $desktopHistoryHolder = $('<div>').addClass('histori-col h-100');
+                let $desktopImageHolder = $('<div>').addClass('img mb-4');
+                let $desktopAnchorHolder = $('<a>').attr('href', baseUrl + 'history/detail?id=' + val.PARENT);
+                let $desktopImageSource = $('<img>').attr({
+                    src: baseUrl + 'assets/img/histori-suplai/' + val.IMAGE,
+                    alt: val.DESCRIPTION
+                }).addClass('img-fluid');
+                let $desktopTextHolder = $('<p>').text(val.DESCRIPTION).addClass('title text-capitalize');
+
+                $mobileImageSource.appendTo($mobileAnchorHolder);
+                $mobileAnchorHolder.appendTo($mobileImageHolder);
+                $mobileImageHolder.appendTo($mobileHistoryHolder);
+                $mobileTextHolder.appendTo($mobileHistoryHolder);
+                $mobileHistoryHolder.appendTo($mobileHolder);
+
+                $desktopImageSource.appendTo($desktopAnchorHolder);
+                $desktopAnchorHolder.appendTo($desktopImageHolder);
+                $desktopImageHolder.appendTo($desktopHistoryHolder);
+                $desktopTextHolder.appendTo($desktopHistoryHolder);
+                $desktopHistoryHolder.appendTo($desktopHolder);
+
+                $('#autoloadHolder').append($desktopHolder);
+
+            });
+
+            let $loadContainer = $('<div>').addClass('col-12 d-flex justify-content-center btn-container');
+            let $btnLoadMore = $('<a>').addClass('w-25 btn-load-more').text('Tampilkan Lebih Banyak').attr({
+                onclick: 'manualLoad()'
+            });
+
+            $btnLoadMore.appendTo($loadContainer);
+            $('#autoloadHolder').append($loadContainer);
+
+        });
+    }
+
+
+    // loadHistory(1, 3);
+
+    /* Autoload Content */
+    $(window).scroll(function() {
+
+        if (loadCounter < 3) {
+            if ($(window).scrollTop() + $(window).height() > $("#autoloadTrigger").height() && action == 'inactive') {
+                console.log('run now');
+                action = 'active';
+                start = start + limit;
+                loadCounter++;
+                setTimeout(function() {
+                    loadHistory(limit, start, loadCounter);
+                }, 1000);
+            }
+        } else {
+
+        }
+    });
+    /* End of Autoload */
 
     $('.row-images').each(function() {
         var $this = $(this);

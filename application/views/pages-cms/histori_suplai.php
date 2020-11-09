@@ -67,8 +67,8 @@
 												$createDate = strtotime($data->CREATED);
 												$updateDate = strtotime($data->UPDATED);
 												?>
-												<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;"><?php echo date('l, j F Y', $createDate); ?></label><br>
-												<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;"> <?php echo ($updateDate != null ? date('l, j F Y', $updateDate) : ' -'); ?></label>
+												<label style="width: 5em;">Created</label> : <label style="color: #16566b; font-weight: bold;"><?php echo date('l, j F Y H:i:s', $createDate); ?></label><br>
+												<label style="width: 5em;">Updated</label> : <label style="color: #16566b; font-weight: bold;"> <?php echo ($updateDate != null ? date('l, j F Y H:i:s', $updateDate) : ' -'); ?></label>
 											</td>
 											<td>
 												<div class="form-button-action">
@@ -124,7 +124,7 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Detail Suplai</label>
-								<input id="supplyDetail" name="supplyDetail" type="text" class="form-control" placeholder="Di isi dengan detail suplai">
+								<textarea id="supplyDetail" name="supplyDetail" class="form-control" placeholder="Di isi dengan detail suplai"></textarea>
 								<small id="detailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Detail Suplai</label>
-								<input id="editDetail" name="editDetail" type="text" class="form-control">
+								<textarea id="editDetail" name="editDetail" class="form-control"></textarea>
 								<small id="editDetailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
 							</div>
 						</div>
@@ -197,7 +197,7 @@
 				</div>
 				<div class="modal-footer no-bd">
 					<button type="submit" id="editButton" class="btn btn-primary">Edit</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="reloadPage()">Tutup</button>
 				</div>
 
 			</div>

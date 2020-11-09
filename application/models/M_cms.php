@@ -93,6 +93,19 @@ class M_cms extends CI_Model
     return $query;
   }
 
+  public function getSupplyWithLimit($start, $end)
+  {
+    $this->db->select('*');
+    $this->db->from('v_g_supply_images');
+    $this->db->group_by('IMAGE_PARENT');
+    $this->db->order_by('CREATED', 'ASC');
+    $this->db->limit($start, $end);
+
+    $query = $this->db->get();
+
+    return $query;
+  }
+
   public function getSupplyCount()
   {
     $this->db->select('*');

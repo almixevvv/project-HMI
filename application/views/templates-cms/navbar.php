@@ -25,12 +25,26 @@
 		<nav class="navbar navbar-header navbar-expand-lg" style="background-color: #16566b;">
 
 			<div class="container-fluid">
-				<label class="text-white op-7">"Jangan Sungkan Untuk Menghubungi Kami, Kami Siap Membantu Untuk Segala Kebutuhan Kapal Anda."</label>
+				<div class="collapse" id="search-nav">
+					<label class="text-white op-7">"Jangan Sungkan Untuk Menghubungi Kami, Kami Siap Membantu Untuk Segala Kebutuhan Kapal Anda."</label>
+				</div>
 				<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-					<li class="nav-item toggle-nav-search hidden-caret">
-						<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
-							<i class="fa fa-search"></i>
+					<li class="nav-item dropdown hidden-caret">
+						<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-bell"></i>
+							<span class="notification message-counter d-none" id="counter-icon"></span>
 						</a>
+						<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+							<li>
+								<div class="dropdown-title d-none" id="counter-message">Anda memiliki <span class="message-counter"></span> transaksi yang belum terbayar</div>
+							</li>
+							<li>
+								<div class="notif-scroll scrollbar-outer">
+									<div class="notif-center" id="notif-container">
+									</div>
+								</div>
+							</li>
+						</ul>
 					</li>
 					<li class="nav-item dropdown hidden-caret">
 						<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">

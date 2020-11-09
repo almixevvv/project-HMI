@@ -13,9 +13,31 @@ class API extends CI_Controller
         // u489506459_hmi
     }
 
+    public function postSalesDocument()
+    {
+        $config['upload_path']      = './assets/doc/';
+        $config['allowed_types']    = '*';
+        $config['file_ext_tolower'] = TRUE;
+        $config['overwrite']        = TRUE;
+        $config['encrypt_name']     = TRUE;
+
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('docUpload')) {
+            $htmlTags = ['<p>', '</p>'];
+            $errMsg = str_replace($htmlTags, '', $this->upload->display_errors());
+            $error = array('error' => $errMsg);
+
+            echo json_encode($error);
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+            echo json_encode($data);
+        }
+    }
+
     public function postSupplyImage()
     {
-
         $config['upload_path']      = './assets/img/histori-suplai/';
         $config['allowed_types']    = '*';
         $config['file_ext_tolower'] = TRUE;
@@ -103,6 +125,29 @@ class API extends CI_Controller
         echo json_encode($msg);
     }
 
+    function deleteDropzoneFiles()
+    {
+        $this->load->helper('file');
+
+        $uploadPath = 'assets/doc/' . $this->input->post('images');
+
+        if (unlink($uploadPath)) {
+            $msg = array(
+                'status'    => 200,
+                'message'   => 'file deleted successfully',
+                'code'      => 200
+            );
+        } else {
+            $msg = array(
+                'status'    => 200,
+                'message'   => 'error while deleting files',
+                'code'      => 501
+            );
+        }
+
+        echo json_encode($msg);
+    }
+
     function deleteIntroFiles()
     {
         $this->load->helper('file');
@@ -125,6 +170,146 @@ class API extends CI_Controller
         }
 
         echo json_encode($msg);
+    }
+
+    public function getHistorySupply()
+    {
+        $start = $this->input->get('start');
+        $limit   = $this->input->get('limit');
+        $loadCounter = $this->input->get('counter');
+        $queryData = $this->cms->getSupplyWithLimit($limit, $start);
+
+        $counter = 0;
+        if ($queryData->num_rows() != 0) {
+            foreach ($queryData->result() as $data) {
+                $mainArr[$counter] = array(
+                    'DESCRIPTION'   => $data->DESCRIPTION,
+                    'NAME'          => $data->NAME,
+                    'IMAGE'         => $data->IMAGE,
+                    'PARENT'        => $data->IMAGE_PARENT
+                );
+
+                $counter++;
+            }
+
+            $dtEncode = json_encode($mainArr);
+
+            $msg = array(
+                'status'    => 200,
+                'message'   => 'error while deleting files',
+                'data'      => json_decode($dtEncode),
+                'button'    => ($loadCounter >= 3 ? true : false),
+                'code'      => 501
+            );
+
+            echo json_encode($msg);
+        }
+    }
+
+    public function postSOData()
+    {
+        $this->db->trans_begin();
+
+        $masterData = array(
+            'PO_NO'         => $this->input->post('salesPO'),
+            'PO_DATE'       => $this->input->post('salesCreatePO'),
+            'PO_FILE'       => $this->input->post('fileName'),
+            'CREATED'       => date('Y-m-d h:i:s'),
+            'SO_STATUS'     => 'UNPAID'
+        );
+
+        $this->sales->insertSOData($masterData);
+
+        $data = array(
+            'USER_ID'       => $this->session->userdata('NAME'),
+            'ACTION_TYPE'   => 'POST',
+            'ACTION_MODULE' => 'SALES ORDER',
+            'ACTION_DATA'   => $this->input->post('salesPO'),
+            'CREATED_AT'    => date('Y-m-d h:i:s')
+        );
+
+        $this->cms->postLogData($data);
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+
+            echo json_encode(array(
+                'status'    => 200,
+                'code'      => 501,
+                'message'   => 'error while processing data'
+            ));
+        } else {
+            $this->db->trans_commit();
+
+            echo json_encode(array(
+                'status'    => 200,
+                'code'      => 200,
+                'message'   => 'data inserted'
+            ));
+        }
+    }
+
+    public function updateSOData()
+    {
+        $this->db->trans_begin();
+
+        if ($this->input->post('editSJPO') != null) {
+            $sjData = array(
+                'DO_DATE'       => $this->input->post('editSJPO'),
+                'DO_FILE'       => $this->input->post('suratJalan'),
+                'SO_STATUS'     => 'DELIVERED',
+                'UPDATED'       => date('Y-m-d h:i:s')
+            );
+
+            $data = array(
+                'USER_ID'       => $this->session->userdata('NAME'),
+                'ACTION_TYPE'   => 'UPDATE',
+                'ACTION_MODULE' => 'SALES ORDER',
+                'ACTION_DATA'   => $this->input->post('salesPO'),
+                'CREATED_AT'    => date('Y-m-d h:i:s')
+            );
+
+            $this->sales->updateSOData($this->input->post('editPO'), $sjData);
+            $this->cms->postLogData($data);
+        }
+
+        if ($this->input->post('editInvoicePO') != null) {
+            $invoiceData = array(
+                'INVOICE_DATE'  => $this->input->post('editInvoicePO'),
+                'INVOICE_FILE'  => $this->input->post('invoice'),
+                'SO_STATUS'     => 'PAID',
+                'UPDATED'       => date('Y-m-d h:i:s')
+            );
+
+            $data = array(
+                'USER_ID'       => $this->session->userdata('NAME'),
+                'ACTION_TYPE'   => 'UPDATE',
+                'ACTION_MODULE' => 'SALES ORDER',
+                'ACTION_DATA'   => $this->input->post('salesPO'),
+                'CREATED_AT'    => date('Y-m-d h:i:s')
+            );
+
+            $this->sales->updateSOData($this->input->post('editPO'), $invoiceData);
+            $this->cms->postLogData($data);
+        }
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+
+            echo json_encode(array(
+                'status'    => 200,
+                'code'      => 501,
+                'message'   => 'error while processing data'
+            ));
+        } else {
+            $this->db->trans_commit();
+
+            echo json_encode(array(
+                'status'    => 200,
+                'code'      => 200,
+                'message'   => 'data inserted'
+            ));
+        }
     }
 
     public function postSupplyData()
