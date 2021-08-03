@@ -214,12 +214,20 @@ h6 {
 #intro h2 {
 	color: #ffffff9e;
 	margin-bottom: 30px;
-	font-weight: 700;
+	font-weight: 600;
+	font-size: 75px;
+	font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 768px) {
 	#intro h2 {
-		font-size: 28px;
+		font-size: 60px;
+	}
+}
+
+@media (max-width: 425px) {
+	#intro h2 {
+		font-size: 40px;
 	}
 }
 

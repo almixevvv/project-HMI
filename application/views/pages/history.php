@@ -21,7 +21,7 @@
 
             <div class="row histori-cols">
                 <div class="col-md-12 wow fadeInUp">
-                    <header class="section-header">
+                    <header class="section-header pt-5">
                         <h3>histori suplai</h3>
                     </header>
                 </div>

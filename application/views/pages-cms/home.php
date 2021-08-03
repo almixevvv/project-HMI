@@ -22,8 +22,8 @@
 							<a href="<?php echo base_url('cms/history'); ?>">
 								<div class="btn btn-light btn-rounded" style="width: 20%">Histori Suplai</div>
 							</a>&nbsp;&nbsp;
-							<a href="<?php echo base_url('cms/histori_suplai'); ?>" hidden>
-								<div class="btn btn-light btn-rounded" style="width: 20%">Client</div>
+							<a href="<?php echo base_url('cms/sales'); ?>">
+								<div class="btn btn-light btn-rounded" style="width: 20%">Sales Order</div>
 							</a>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 				<div class="col-md-6">
 					<div class="card full-height">
 						<div class="card-header">
-							<div class="card-title">Histori Suplai</div>
+							<div class="card-title">Histori Sistem</div>
 						</div>
 						<div class="card-body">
 							<ol class="activity-feed">
@@ -66,7 +66,7 @@
 									}
 								?>
 									<li class="feed-item feed-item-danger">
-										<time class="date" datetime="<?php echo date('m-j', $createDate); ?>"><?php echo date('M j', $createDate); ?></time>
+										<time class="date" datetime="<?php echo date('m-j', $createDate); ?>"><?php echo date('M j g:i a', $createDate); ?></time>
 										<span class="text"> <strong><?php echo $data->USER_ID; ?></strong> <?php echo $action; ?> <strong><?php echo $data->ACTION_DATA; ?></strong> </span>
 									</li>
 								<?php } ?>

@@ -121,7 +121,7 @@
 
 <link rel="stylesheet" href="<?php echo base_url('lib/dropzone/dropzone.css'); ?>">
 <script src="<?php echo base_url('lib/dropzone/dropzone.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/cms.1.0.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/cms.1.0.js?version=' . filemtime('./assets/js/cms.1.0.js')); ?>"></script>
 <script>
     $('#add-row').DataTable({});
 
@@ -141,7 +141,7 @@
                 $('#notif-container').html(resp.result);
             }
         });
-    }, 2000);
+    }, 180000);
 
     Circles.create({
         id: 'circles-1',

@@ -1,3 +1,24 @@
+<style type="text/css">
+    .btn-compro {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #16566b;
+}
+
+    .btn-compro:hover {
+    background: #fff;
+    color: #16566b;
+}
+</style>
+
 <section id="intro">
     <div class="intro-container">
         <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
@@ -9,7 +30,7 @@
                 <div class="carousel-item active" style="background-image: url('<?php echo base_url('assets/img/intro-carousel/BACKGROUND 1.jpg'); ?>');">
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2 class="text-capitalize">"Jangan sungkan untuk menghubungi kami</br>kami siap membantu untuk segala kebutuhan kapal anda."</h2>
+                            <h2 class="text-capitalize">GENERAL SHIP SUPPLIER</h2>
                             <a href="#contact" class="btn-get-started scrollto">Hubungi Kami</a>
                         </div>
                     </div>
@@ -87,6 +108,10 @@
                                     Memberikan pelayanan dalam pengadaan-pengadaan kebutuhan kapal laut seperti keperluan <strong>Cathodic Protection (Zinc & Alumunium Anode)</strong>,
                                     <strong>Cabin Store</strong>, <strong>Deck Store</strong>, <strong>Electrical Store</strong>, <strong>Nautical Equipment</strong>, <strong>Marine Valves</strong>,
                                     <strong>Rope</strong>, <strong>Hawser</strong>, <strong>Rigging Equipment</strong>, <strong>Safety Equipment</strong></i> dan keperluan lainnya.
+                                    </br>
+                                    </br>
+                                    Klik disini untuk melihat <strong>Company Profile</strong> kami.</br>
+                                    <a href="<?php echo base_url('assets/compro/Compro_PT_HMI.pdf')?>" target="_blank" class="btn-compro">Company Profile</a>
                                 </p>
                             </header>
                         </div>
@@ -152,6 +177,23 @@
             <header class="section-header">
                 <h3 class="section-title">produk kami</h3>
             </header>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-md-6 pt-4">
+                    <h4 style="font-weight: bold;">Span Gas (Gas Kalibrasi)</h4>
+                    <ul class="list-group">
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Mix Gas</li>
+                        <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Single Gas</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Customized Gas</li>
+                        <li class="product-list2 list-group-item"><i class="ion-checkmark-round"></i> Regulator</li>
+                        <li class="product-list list-group-item"><i class="ion-checkmark-round"></i> Gas Tube</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="<?php echo base_url('assets/img/product-list/SPAN-GAS.png'); ?>" class="img-fluid" alt="">
+                </div>
+
+            </div>
 
             <div class="row" data-aos="fade-up">
                 <div class="col-md-6 pt-4">
@@ -358,8 +400,10 @@
             </header>
 
             <div class="d-flex justify-content-around">
-                <img style="width: 40%;" class="mx-2" src="<?php echo base_url('assets/img/customer/CUSTOMER 1.JPG'); ?>" alt="Soechi Lines">
-                <img style="width: 13%;" class="mx-2" src="<?php echo base_url('assets/img/customer/CUSTOMER 2.png'); ?>" alt="Soechi Lines">
+                <img class="mx-2" src="<?php echo base_url('assets/img/customer/CUSTOMER_ALL.png'); ?>" alt="Soechi Lines">
+                <!-- <img style="width: 40%;" class="mx-2" src="<?php echo base_url('assets/img/customer/CUSTOMER 1.JPG'); ?>" alt="Soechi Lines"> -->
+                <!-- <img style="width: 13%;" class="mx-2" src="<?php echo base_url('assets/img/customer/CUSTOMER 2.png'); ?>" alt="Soechi Lines">
+                <img style="width: 50%;" class="mx-2" src="<?php echo base_url('assets/img/customer/IBT_1.png'); ?>" alt="Soechi Lines"> -->
             </div>
 
         </div>
@@ -391,7 +435,7 @@
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
                         <h3>nomor telepon</h3>
-                        <p><a href="tel:+155895548855">(+62) 8111 369 153</a></p>
+                        <p><a href="tel:+628111369153">(+62) 8111 369 153</a></p>
                     </div>
                 </div>
 
@@ -399,7 +443,7 @@
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3>email</h3>
-                        <p><a href="mailto:info@example.com">info@haluanmaritim.com</a></p>
+                        <p><a href="mailto:info@haluanmaritim.com">info@haluanmaritim.com</a></p>
                     </div>
                 </div>
 

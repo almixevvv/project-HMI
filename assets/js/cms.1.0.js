@@ -767,7 +767,9 @@ $('#addSalesModal').on('shown.bs.modal', function() {
 });
 
 $('#addRowModal').on('shown.bs.modal', function() {
-	// console.log('kebuka');
+    
+    $('#addRowButton').attr('disabled', true);
+    
 	$('#dz-upload').dropzone({
 		url: baseUrl + '/API/postSupplyImage',
 		paramName: 'imgUpload',
@@ -787,6 +789,7 @@ $('#addRowModal').on('shown.bs.modal', function() {
 			console.log(resp);
 			fileName.push(resp.upload_data.file_name);
 			fileType.push(resp.upload_data.file_type);
+			$('#addRowButton').attr('disabled', false);
 		},
 		removedfile: function(file) {
 			$.post(
@@ -812,7 +815,7 @@ $('#addRowModal').on('shown.bs.modal', function() {
 		if (validateData($('#supplyDetail')) && validateData($('#supplyName')) && validateImage()) {
 			console.log('clear proses');
 			$.post(
-				baseUrl + 'API/updateSupplyData',
+				baseUrl + 'API/postSupplyData',
 				formData + '&fileName=' + fileName.toString() + '&fileType=' + fileType.toString(),
 				function(ex) {
 					console.log(ex);

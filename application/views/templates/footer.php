@@ -16,6 +16,7 @@
                         <li><i class="ion-ios-arrow-right"></i><a href="#portfolio">Produk Kami</a></li>
                         <li><i class="ion-ios-arrow-right"></i><a href="#clients">Client Kami</a></li>
                         <li><i class="ion-ios-arrow-right"></i><a href="#contact">Kontak</a></li>
+                        <li><i class="ion-ios-arrow-right"></i><a href="<?= base_url('assets/compro/Compro_PT_HMI.pdf') ?>" target="_blank">Company Profile</a></li>
                     </ul>
                 </div>
 
@@ -46,23 +47,23 @@
 
 <a href="#" class="back-to-top"><i class="mt-2 fa fa-chevron-up"></i></a>
 
-<script src="<?php echo base_url('lib/jquery/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/jquery/jquery-migrate.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/easing/easing.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/superfish/hoverIntent.js'); ?>"></script>
-<script src="<?php echo base_url('lib/superfish/superfish.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/wow/wow.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/waypoints/waypoints.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/isotope/isotope.pkgd.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/lightbox/js/lightbox.min.js'); ?>"></script>
-<script src="<?php echo base_url('lib/touchSwipe/jquery.touchSwipe.min.js'); ?>"></script>
+<script src="<?= base_url('lib/jquery/jquery.min.js'); ?>"></script>
+<script src="<?= base_url('lib/jquery/jquery-migrate.min.js'); ?>"></script>
+<script src="<?= base_url('lib/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?= base_url('lib/easing/easing.min.js'); ?>"></script>
+<script src="<?= base_url('lib/superfish/hoverIntent.js'); ?>"></script>
+<script src="<?= base_url('lib/superfish/superfish.min.js'); ?>"></script>
+<script src="<?= base_url('lib/wow/wow.min.js'); ?>"></script>
+<script src="<?= base_url('lib/waypoints/waypoints.min.js'); ?>"></script>
+<script src="<?= base_url('lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
+<script src="<?= base_url('lib/isotope/isotope.pkgd.min.js'); ?>"></script>
+<script src="<?= base_url('lib/lightbox/js/lightbox.min.js'); ?>"></script>
+<script src="<?= base_url('lib/touchSwipe/jquery.touchSwipe.min.js'); ?>"></script>
 
-<script src="<?php echo base_url('plugins/contactform/contactform.js'); ?>"></script>
-<script src="<?php echo base_url('plugins/font-awesome/js/all.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/cms/js/plugin/sweetalert/sweetalert2.all.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+<script src="<?= base_url('plugins/contactform/contactform.js'); ?>"></script>
+<script src="<?= base_url('plugins/font-awesome/js/all.min.js'); ?>"></script>
+<script src="<?= base_url('assets/cms/js/plugin/sweetalert/sweetalert2.all.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/main.js'); ?>"></script>
 
 <script>
     const getUrl = window.location;

@@ -65,8 +65,9 @@
 								<thead>
 									<tr>
 										<th>No.</th>
-										<th>Nomor PO</th>
+										<th>Info SO</th>
 										<th>Surat Jalan</th>
+										<th>Invoice</th>
 										<th>Bukti Penerimaan</th>
 										<th>Status</th>
 										<th>Action</th>
@@ -79,14 +80,14 @@
 											<td>
 												<div class="row">
 													<div class="col-12">
-														<span class="so-text-bold w-50 text-align-left">No Po</span>
+														<span class="so-text-bold w-50 text-align-left">No SO</span>
 														<span class="w-50 text-align-left">: <?php echo $data->PO_NO; ?></span>
 													</div>
 													<div class="col-12">
-														<span class="so-text-bold">Tanggal PO</span> : <?php echo date("d M Y", strtotime($data->PO_DATE)); ?>
+														<span class="so-text-bold">Tanggal SO</span> : <?php echo date("d M Y", strtotime($data->PO_DATE)); ?>
 													</div>
 													<div class="col-12">
-														<span class="so-text-bold">File PO</span> : <a class="so-hyperlink" target="_blank" href="<?php echo base_url('assets/doc/' . $data->PO_FILE); ?>">Unduh File</a>
+														<span class="so-text-bold">File SO</span> : <a class="so-hyperlink" target="_blank" href="<?php echo base_url('assets/doc/' . $data->PO_FILE); ?>">Unduh File</a>
 													</div>
 												</div>
 											</td>
@@ -110,7 +111,22 @@
 											<td>
 												<div class="row">
 													<div class="col-12">
-														<span class="so-text-bold">Tanggal Diterima</span> : <?php echo ($data->INVOICE_DATE == null ? '-' : date("d M Y", strtotime($data->INVOICE_DATE))); ?>
+														<span class="so-text-bold">Tanggal Invoice</span> : 
+													</div>
+													<div class="col-12">
+														<span class="so-text-bold">File Invoice</span> :
+													</div>
+													<div class="col-12">
+														
+														<a class="so-hyperlink" id="fileSJ" href="<?php echo '#'; ?>">-</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="row">
+													<div class="col-12">
+														<span class="so-text-bold">Tanggal Penerimaan</span> : <?php echo ($data->INVOICE_DATE == null ? '-' : date("d M Y", strtotime($data->INVOICE_DATE))); ?>
 													</div>
 													<div class="col-12">
 														<span class="so-text-bold">File Bukti Diterima</span> :
@@ -153,7 +169,7 @@
 												</div>
 											</td>
 											<td>
-												<button class="btn btn-icon btn-round btn-info btn-edit-so" data-sodate="<?php echo date("Y-m-d", strtotime($data->PO_DATE)); ?>" data-sjdate="<?php echo ($data->DO_DATE == null ? '' : date("Y-m-d", strtotime($data->DO_DATE))); ?>" data-indate="<?php echo ($data->INVOICE_DATE == null ? '' : date("Y-m-d", strtotime($data->INVOICE_DATE))); ?>" data-sono="<?php echo $data->PO_NO; ?>" data-toggle="tooltip" data-placement="top" title="Update Sales Order">
+												<button class="btn btn-icon btn-round btn-info btn-edit-so" data-sodate="<?php echo date("Y-m-d", strtotime($data->PO_DATE)); ?>" data-sjdate="<?php echo ($data->DO_DATE == null ? '' : date("Y-m-d", strtotime($data->DO_DATE))); ?>" data-indate="<?php echo ($data->INVOICE_DATE == null ? '' : date("Y-m-d", strtotime($data->INVOICE_DATE))); ?>" data-sono="<?php echo $data->PO_NO; ?>" data-toggle="tooltip" data-placement="top" title="Update Sales Order" disabled>
 													<i class="fa fa-align-left"></i>
 												</button>
 											</td>
@@ -195,13 +211,13 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
-								<label>Nomor PO</label>
+								<label>Nomor SO</label>
 								<input id="editPO" name="editPO" type="text" class="form-control" readonly>
 							</div>
 						</div>
 						<div class="col-sm-12">
 							<div class="form-group">
-								<label>Tanggal Terima PO</label>
+								<label>Tanggal SO</label>
 								<input id="editDatePO" name="editDatePO" type="date" class="form-control" readonly>
 							</div>
 						</div>
@@ -279,21 +295,21 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
-								<label>Nomor PO</label>
+								<label>Nomor SO</label>
 								<input id="salesPO" name="salesPO" type="text" class="form-control" placeholder="Di isi dengan nomor PO">
 								<small id="salesPO" class="form-err form-text">Nomor PO tidak boleh kosong</small>
 							</div>
 						</div>
 						<div class="col-sm-12">
 							<div class="form-group">
-								<label>Tanggal Terima PO</label>
+								<label>Tanggal SO</label>
 								<input id="salesCreatePO" name="salesCreatePO" type="date" class="form-control">
 								<small id="salesCreatePO" class="form-err form-text">Tanggal PO tidak boleh kosong</small>
 							</div>
 						</div>
 						<div class="col-sm-12">
 							<div class="form-group">
-								<label>File PDF PO</label>
+								<label>File PDF SO</label>
 								<div class="mt-2 dropzone" id="dz-document">
 									<!-- <div class="dz-default dz-message"></div> -->
 									<div class="dz-message" data-dz-message>

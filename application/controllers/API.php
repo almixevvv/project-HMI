@@ -13,6 +13,52 @@ class API extends CI_Controller
         // u489506459_hmi
     }
 
+    public function generateRandomID()
+    {
+        $randomSalt = md5(uniqid(rand(), true));
+        $salt = substr($randomSalt, 0, MAX_PASSLENGTH);
+
+        echo $salt;
+    }
+
+    public function resizeImage()
+    {
+        $this->db->select('*');
+        $this->db->from('v_g_supply_images');
+
+        $query = $this->db->get();
+
+        foreach ($query->result() as $images) {
+
+            $imagePath = './assets/img/histori-suplai/' . $images->IMAGE;
+            $newPath   = './assets/img/resize-suplai/' . $images->IMAGE;
+
+            $imgObject = new Gumlet\ImageResize($imagePath);
+
+            if (getimagesize($imagePath)[0] > 800) {
+                $imgObject->resizeToWidth(800);
+                $imgObject->save($newPath);
+            }
+        }
+
+        echo 'process finished';
+
+        // $image = new Gumlet\ImageResize('./assets/img/histori-suplai/6c9bb2663b462c6d168c6b66ec3e4426.jpeg');
+
+        // echo getimagesize('./assets/img/histori-suplai/6c9bb2663b462c6d168c6b66ec3e4426.jpeg')[0];
+
+        // if()
+
+        // if ($newObject->source_w > 800) {
+        //     echo 'resize the image';
+        // } else {
+        //     echo 'keep it';
+        // }
+
+        // $image->resizeToWidth(300);
+        // $image->save('image2.jpg');
+    }
+
     public function postSalesDocument()
     {
         $config['upload_path']      = './assets/doc/';

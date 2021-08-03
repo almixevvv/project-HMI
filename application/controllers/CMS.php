@@ -69,7 +69,7 @@ class CMS extends CI_Controller
                         <span class="block">
                             SO nomor ' . $data->PO_NO .  ' belum dibayar
                         </span>
-                        <span class="time"> ' . ($interval->d > 0 ? $interval->d . ' hari yang lalu' : 'Hari ini') . '</span>
+                        <span class="time"> ' . ($interval->d > 0 ? $interval->d . ' hari yang lalu' : 'hari ini') . '</span>
                     </div>
                 </a>
                 ';

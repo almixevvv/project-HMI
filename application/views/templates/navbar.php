@@ -15,20 +15,20 @@
                             <h6 class="text-primary mb-0">
                                 <i class="fa fa-phone text-primary mr-2"></i> Hubungi Kami</h6>
                             <span>
-                                <a class="btn pt-1" href="tel:021-536-51-222" style="color: #a7a7a7;"> (+62) 8111 369 153</a>
+                                <a class="btn pt-1" href="tel:+628111369153" style="color: #a7a7a7;"> (+62) 8111 369 153</a>
                             </span>
                         </li>
                         <li class="list-inline-item mr-4">
                             <h6 class="text-primary mb-0">
                                 <i class="fab fa-whatsapp fa-1x mr-2" style="color: #00b011;"></i>WhatsApp</h6>
                             <span>
-                                <a class="btn pt-1" href="https://web.whatsapp.com/send?phone=+62111369153" target="_blank">
+                                <a class="btn pt-1" href="https://web.whatsapp.com/send?phone=+628111369153" target="_blank">
                                     (+62) 8111 369 153</a></span>
                         </li>
                         <li class="list-inline-item mr-4">
                             <h6 class="text-primary mb-0">
                                 <i class="fas fa-envelope text-primary mr-2"></i> Email</h6>
-                            <span><a class="btn pt-1" href="#">
+                            <span><a class="btn pt-1" href="mailto:info@haluanmaritim.com">
                                     info@haluanmaritim.com</a></span>
 
                         </li>

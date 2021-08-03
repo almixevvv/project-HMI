@@ -124,7 +124,7 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Detail Suplai</label>
-								<textarea id="supplyDetail" name="supplyDetail" class="form-control" placeholder="Di isi dengan detail suplai"></textarea>
+								<input id="supplyDetail" name="supplyDetail" type="text" class="form-control" placeholder="Di isi dengan detail suplai">
 								<small id="detailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>Detail Suplai</label>
-								<textarea id="editDetail" name="editDetail" class="form-control"></textarea>
+								<input id="editDetail" name="editDetail" type="text" class="form-control">
 								<small id="editDetailHelp" class="form-err form-text">Detail suplai tidak boleh kosong</small>
 							</div>
 						</div>

@@ -40,6 +40,12 @@
 			</div>
 
 			<ul class="nav nav-primary">
+				<li class="nav-item active">
+					<a href="<?php echo base_url('cms/dashboard')?>">
+						<i class="fas fa-tachometer-alt"></i>
+						<p>Dashboard</p>
+					</a>
+				</li>
 				<?php
 				$sql = "SELECT DISTINCT c.ID, c.NAME, c.DESCRIPTION AS ICON
 				           FROM s_group_appl a
@@ -70,7 +76,7 @@
 							<p><?php echo $data->NAME; ?></p>
 							<span class="caret"></span>
 						</a>
-						<div class="collapse" id="<?php echo $data->ID; ?>">
+						<div id="<?php echo $data->ID; ?>">
 							<ul class="nav nav-collapse">
 								<?php foreach ($query2->result() as $data2) { ?>
 									<li>
